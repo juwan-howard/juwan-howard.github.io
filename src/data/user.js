@@ -147,14 +147,6 @@ const INFO = {
 			category: "Short Film",
 			year: "2024",
 			url: "https://vimeo.com/959370566"
-		},
-		{
-			title: "In Shadows",
-			description: "Film noir inspired student project with dramatic lighting.",
-			thumbnail: "https://images.unsplash.com/photo-1470509037663-253afd7f0f51?q=80&w=1287",
-			category: "Student Film",
-			year: "2023",
-			url: "https://vimeo.com"
 		}
 	],
 

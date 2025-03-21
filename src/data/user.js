@@ -125,28 +125,28 @@ const INFO = {
 
 	projects: [
 		{
-			title: "Urban Solitude",
-			description: "Short film exploring urban environments and isolation.",
+			title: "Untethered",
+			description: "A poetic narrative exploring themes of connection and isolation.",
 			thumbnail: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=1025",
 			category: "Short Film",
 			year: "2023",
-			url: "https://vimeo.com"
+			url: "https://vimeo.com/927267260"
 		},
 		{
-			title: "Local Canvas",
-			description: "Documentary piece focusing on local artists.",
+			title: "Echoes",
+			description: "Experimental narrative examining resonance through visual storytelling.",
 			thumbnail: "https://images.unsplash.com/photo-1518544801976-3e159def92d3?q=80&w=1287",
-			category: "Documentary", 
-			year: "2022",
-			url: "https://vimeo.com"
+			category: "Short Film", 
+			year: "2024",
+			url: "https://vimeo.com/959374007"
 		},
 		{
-			title: "Echoes of Memory",
-			description: "Experimental narrative exploring themes of memory.",
+			title: "Reflections",
+			description: "A contemplative piece on memory and identity through visual metaphor.",
 			thumbnail: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=1471",
 			category: "Short Film",
-			year: "2022",
-			url: "https://vimeo.com"
+			year: "2024",
+			url: "https://vimeo.com/959370566"
 		},
 		{
 			title: "In Shadows",
@@ -175,8 +175,8 @@ const INFO = {
 	],
 
 	showreel: {
-		url: "https://player.vimeo.com/video/76979871?h=8272103f6e",
-		description: "A collection of my cinematography work from 2021-2023, showcasing various visual styles, lighting techniques, and camera movements across narrative and documentary projects."
+		url: "https://player.vimeo.com/video/927267260",
+		description: "A collection of my narrative directing work showcasing my approach to visual storytelling and character-driven narratives."
 	}
 };
 

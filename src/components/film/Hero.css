@@ -114,8 +114,8 @@
   }
   
   .hero {
-    background-position: 50% center;
-    filter: contrast(110%);
+    background-position: 20% center;
+    filter: contrast(115%);
   }
   
   .hero-overlay {

@@ -1,11 +1,26 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './Hero.css';
 import INFO from '../../data/user';
 import silhouetteImg from '../../assets/silhouette.jpg';
 
 const Hero = () => {
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  
+  // Update the isMobile state when window is resized
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   const heroStyle = {
-    backgroundImage: `url(${silhouetteImg})`
+    backgroundImage: `url(${silhouetteImg})`,
+    backgroundPosition: isMobile ? '20% center' : 'center'
   };
 
   return (

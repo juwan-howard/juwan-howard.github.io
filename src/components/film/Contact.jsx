@@ -15,16 +15,59 @@ const Contact = () => {
     info: { error: false, msg: null }
   });
 
+  const [errors, setErrors] = useState({});
+
+  // Validate form and return boolean indicating validity
+  const validateForm = () => {
+    const newErrors = {};
+    
+    // Name validation
+    if (!formData.name.trim()) {
+      newErrors.name = "Please enter your name";
+    }
+    
+    // Email validation
+    if (!formData.email.trim()) {
+      newErrors.email = "Please enter your email address";
+    } else if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
+      newErrors.email = "Please enter a valid email address";
+    }
+    
+    // Message validation
+    if (!formData.message.trim()) {
+      newErrors.message = "Please enter a message";
+    } else if (formData.message.trim().length < 10) {
+      newErrors.message = "Your message is too short (minimum 10 characters)";
+    }
+    
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
       [name]: value
     });
+    
+    // Clear error for this field when user types
+    if (errors[name]) {
+      setErrors(prev => ({
+        ...prev,
+        [name]: undefined
+      }));
+    }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    // Only proceed if form is valid
+    if (!validateForm()) {
+      return;
+    }
+    
     setStatus({
       submitted: false,
       submitting: true,
@@ -32,8 +75,22 @@ const Contact = () => {
     });
 
     try {
-      // Simulate form submission - replace with actual form submission logic
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      // In a real implementation, send data to a server
+      // This is a placeholder that creates a mailto link
+      const subject = `Message from ${formData.name}`;
+      const body = `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage: ${formData.message}`;
+      
+      // Create and click a mailto link (for demo purposes)
+      // Replace this with actual form submission in production
+      const mailtoLink = document.createElement('a');
+      mailtoLink.href = `mailto:${INFO.main.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      mailtoLink.style.display = 'none';
+      document.body.appendChild(mailtoLink);
+      mailtoLink.click();
+      document.body.removeChild(mailtoLink);
+      
+      // Simulate server processing time
+      await new Promise(resolve => setTimeout(resolve, 1000));
       
       setStatus({
         submitted: true,
@@ -48,10 +105,11 @@ const Contact = () => {
         message: ''
       });
     } catch (error) {
+      console.error("Form submission error:", error);
       setStatus({
         submitted: false,
         submitting: false,
-        info: { error: true, msg: "There was a problem sending your message. Please try again." }
+        info: { error: true, msg: "There was a problem sending your message. Please try again or email me directly." }
       });
     }
   };
@@ -82,6 +140,7 @@ const Contact = () => {
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="social-link"
+                    aria-label={`Connect on ${social.platform}`}
                   >
                     {social.platform}
                   </a>
@@ -92,13 +151,13 @@ const Contact = () => {
           
           <div className="contact-form-container">
             {status.info.error && (
-              <div className="message error">
+              <div className="message error" role="alert">
                 <p>{status.info.msg}</p>
               </div>
             )}
             
             {status.submitted ? (
-              <div className="message success">
+              <div className="message success" role="status">
                 <p>{status.info.msg}</p>
                 <button 
                   onClick={() => setStatus({ submitted: false, submitting: false, info: { error: false, msg: null } })}
@@ -108,7 +167,7 @@ const Contact = () => {
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="contact-form">
+              <form onSubmit={handleSubmit} className="contact-form" noValidate>
                 <div className="form-group">
                   <label htmlFor="name">Name</label>
                   <input
@@ -118,7 +177,14 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleInputChange}
                     required
+                    aria-invalid={!!errors.name}
+                    aria-describedby={errors.name ? "name-error" : undefined}
                   />
+                  {errors.name && (
+                    <div className="error-message" id="name-error" role="alert">
+                      {errors.name}
+                    </div>
+                  )}
                 </div>
                 
                 <div className="form-group">
@@ -130,7 +196,14 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     required
+                    aria-invalid={!!errors.email}
+                    aria-describedby={errors.email ? "email-error" : undefined}
                   />
+                  {errors.email && (
+                    <div className="error-message" id="email-error" role="alert">
+                      {errors.email}
+                    </div>
+                  )}
                 </div>
                 
                 <div className="form-group">
@@ -142,7 +215,14 @@ const Contact = () => {
                     onChange={handleInputChange}
                     rows="5"
                     required
+                    aria-invalid={!!errors.message}
+                    aria-describedby={errors.message ? "message-error" : undefined}
                   ></textarea>
+                  {errors.message && (
+                    <div className="error-message" id="message-error" role="alert">
+                      {errors.message}
+                    </div>
+                  )}
                 </div>
                 
                 <button 

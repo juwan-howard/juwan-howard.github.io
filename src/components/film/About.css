@@ -93,6 +93,100 @@
   transform: scale(1.03);
 }
 
+.learn-more {
+  margin-top: 2rem;
+}
+
+.learn-more-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+  transition: color 0.3s;
+  text-align: left;
+}
+
+.learn-more-btn:hover {
+  color: #ccc;
+}
+
+/* Modal styles */
+.bio-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.3s ease;
+}
+
+.bio-modal-content {
+  background-color: #111;
+  width: 90%;
+  max-width: 800px;
+  max-height: 90vh;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  overflow-y: auto;
+  animation: slideIn 0.3s ease;
+}
+
+.bio-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid #222;
+}
+
+.bio-modal-header h2 {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 300;
+  letter-spacing: 2px;
+}
+
+.close-modal {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #aaa;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.close-modal:hover {
+  color: #fff;
+}
+
+.bio-modal-body {
+  padding: 2rem;
+}
+
+.bio-modal-body p {
+  margin-bottom: 1.5rem;
+  line-height: 1.8;
+  color: #ddd;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { transform: translateY(-30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
 @media (max-width: 992px) {
   .about-content {
     flex-direction: column-reverse;

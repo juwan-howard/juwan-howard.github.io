@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './About.css';
 import INFO from '../../data/user';
-import { Link } from 'react-router-dom';
 
 const About = () => {
+  const [showModal, setShowModal] = useState(false);
+  
+  const toggleModal = () => {
+    setShowModal(!showModal);
+    // Prevent scrolling when modal is open
+    document.body.style.overflow = showModal ? 'auto' : 'hidden';
+  };
+
   return (
     <section id="about" className="about-section">
       <div className="about-container">
@@ -41,7 +48,9 @@ const About = () => {
             </div>
             
             <div className="learn-more">
-              <Link to="/about">Learn more about my work and approach →</Link>
+              <button onClick={toggleModal} className="learn-more-btn">
+                Learn more about my work and approach →
+              </button>
             </div>
           </div>
           
@@ -50,6 +59,23 @@ const About = () => {
           </div>
         </div>
       </div>
+      
+      {/* Modal for full biography */}
+      {showModal && (
+        <div className="bio-modal">
+          <div className="bio-modal-content">
+            <div className="bio-modal-header">
+              <h2>My Approach to Filmmaking</h2>
+              <button className="close-modal" onClick={toggleModal}>×</button>
+            </div>
+            <div className="bio-modal-body">
+              {INFO.about.biography.map((paragraph, index) => (
+                <p key={index}>{paragraph}</p>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };

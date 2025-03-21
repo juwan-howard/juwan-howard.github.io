@@ -1,0 +1,43 @@
+import React, { useEffect } from "react";
+import { Helmet } from "react-helmet";
+
+// Import our components
+import Header from '../components/layout/Header';
+import Hero from '../components/film/Hero';
+import WorkGrid from '../components/film/WorkGrid';
+import ShowReel from '../components/film/ShowReel';
+import About from '../components/film/About';
+import Footer from '../components/layout/Footer';
+
+// Import data
+import INFO from "../data/user";
+import SEO from "../data/seo";
+
+const HomePage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const currentSEO = SEO.find((item) => item.page === "home");
+
+  return (
+    <React.Fragment>
+      <Helmet>
+        <title>{INFO.main.title}</title>
+        <meta name="description" content={currentSEO.description} />
+        <meta name="keywords" content={currentSEO.keywords.join(", ")} />
+      </Helmet>
+
+      <Header />
+      <main>
+        <Hero />
+        <WorkGrid />
+        <ShowReel />
+        <About />
+      </main>
+      <Footer />
+    </React.Fragment>
+  );
+};
+
+export default HomePage; 

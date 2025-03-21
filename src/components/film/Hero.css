@@ -2,6 +2,7 @@
   height: 100vh;
   position: relative;
   background-size: cover;
+  background-position: center;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -113,12 +114,12 @@
   }
   
   .hero {
-    background-size: cover;
-    background-repeat: no-repeat;
+    /* Improve silhouette visibility */
+    filter: contrast(120%);
   }
   
   .hero-overlay {
-    background-color: rgba(0, 0, 0, 0.25); /* Lighter overlay to ensure image visibility */
+    background-color: rgba(0, 0, 0, 0.3); /* Slightly transparent overlay */
   }
   
   .hero-content {

@@ -1,0 +1,120 @@
+.about-section {
+  padding: 6rem 0;
+  background-color: #111;
+  color: #fff;
+}
+
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.about-content {
+  display: flex;
+  gap: 4rem;
+  align-items: center;
+}
+
+.about-text {
+  flex: 1;
+}
+
+.about-text h2 {
+  font-size: 2.5rem;
+  font-weight: 300;
+  margin-bottom: 1.5rem;
+  letter-spacing: 3px;
+}
+
+.about-text .lead {
+  font-size: 1.3rem;
+  color: #aaa;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.about-text p {
+  margin-bottom: 1.5rem;
+  line-height: 1.8;
+  color: #ddd;
+}
+
+.skills {
+  display: flex;
+  gap: 3rem;
+  margin-top: 2rem;
+}
+
+.skill-column {
+  flex: 1;
+}
+
+.skill-column h3 {
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: #aaa;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+}
+
+.skill-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.skill-column li {
+  margin-bottom: 0.8rem;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.skill-column li:before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: #555;
+}
+
+.about-image {
+  flex: 1;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.about-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.about-image:hover img {
+  transform: scale(1.03);
+}
+
+@media (max-width: 992px) {
+  .about-content {
+    flex-direction: column-reverse;
+    gap: 3rem;
+  }
+  
+  .about-image {
+    width: 100%;
+  }
+  
+  .about-image img {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .skills {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .about-text h2 {
+    font-size: 2rem;
+  }
+} 

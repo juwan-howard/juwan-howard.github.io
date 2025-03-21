@@ -1,19 +1,25 @@
 import React from 'react';
 import './App.css';
 
+// Import components
+import Header from './components/layout/Header';
+import Hero from './components/film/Hero';
+import WorkGrid from './components/film/WorkGrid';
+import About from './components/film/About';
+import ShowReel from './components/film/ShowReel';
+import Footer from './components/layout/Footer';
+
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Juwan Howard</h1>
-        <p>Welcome to my personal website</p>
-      </header>
+      <Header />
       <main>
-        <section>
-          <h2>About Me</h2>
-          <p>This is where you can include information about Juwan</p>
-        </section>
+        <Hero />
+        <WorkGrid />
+        <ShowReel />
+        <About />
       </main>
+      <Footer />
     </div>
   );
 }

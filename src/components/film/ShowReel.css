@@ -1,0 +1,70 @@
+.showreel-section {
+  padding: 6rem 0;
+  background-color: #000;
+  color: #fff;
+}
+
+.showreel-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.video-container {
+  margin: 3rem 0;
+}
+
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  height: 0;
+  overflow: hidden;
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.6);
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.showreel-info {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 2.5rem;
+}
+
+.info-column {
+  flex: 1;
+  padding: 0 1rem;
+}
+
+.info-column h3 {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #888;
+  margin-bottom: 0.8rem;
+  letter-spacing: 1px;
+}
+
+.info-column p {
+  font-size: 1.1rem;
+  color: #fff;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .showreel-info {
+    flex-direction: column;
+  }
+  
+  .info-column {
+    margin-bottom: 1.5rem;
+    padding: 0;
+  }
+} 

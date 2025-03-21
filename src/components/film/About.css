@@ -195,10 +195,21 @@
   
   .about-image {
     width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
   }
   
   .about-image img {
     width: 100%;
+  }
+  
+  .about-text .lead {
+    font-size: 1.2rem;
+  }
+  
+  .bio-modal-content {
+    width: 95%;
+    max-height: 85vh;
   }
 }
 
@@ -210,5 +221,26 @@
   
   .about-text h2 {
     font-size: 2rem;
+  }
+  
+  .about-section {
+    padding: 4rem 0;
+  }
+  
+  .about-text p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  
+  .skill-column li {
+    margin-bottom: 0.6rem;
+  }
+  
+  .learn-more-btn {
+    font-size: 0.9rem;
+  }
+  
+  .bio-modal-header h2 {
+    font-size: 1.5rem;
   }
 } 

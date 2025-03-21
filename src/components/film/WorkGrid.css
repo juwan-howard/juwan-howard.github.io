@@ -156,16 +156,44 @@
 
 @media (max-width: 768px) {
   .work-grid {
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: 1fr;
     gap: 1.5rem;
   }
   
   .category-filter button {
-    margin: 0 0.5rem;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
+    padding: 0.5rem;
   }
   
   .section-header h2 {
     font-size: 2rem;
+  }
+  
+  .work-section {
+    padding: 4rem 0;
+  }
+  
+  .category-filter {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .work-info h3 {
+    font-size: 1.3rem;
+  }
+  
+  .work-image-container {
+    height: 250px;
+  }
+  
+  /* Make overlay slightly visible by default on mobile for better UX */
+  .work-overlay {
+    opacity: 0.1;
+  }
+  
+  .work-item:hover .work-overlay {
+    opacity: 1;
   }
 } 

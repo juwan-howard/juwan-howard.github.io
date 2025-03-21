@@ -56,9 +56,30 @@ const Header = () => {
     setMenuOpen(!menuOpen);
   };
   
-  // Close menu when clicking on a navigation link
+  // Close menu when clicking on a navigation link and scroll to section
   const handleNavClick = (e) => {
+    e.preventDefault();
+    
+    // Get the target section from the href attribute
+    const targetId = e.currentTarget.getAttribute('href');
+    const targetElement = document.querySelector(targetId);
+    
+    // First close the menu
     setMenuOpen(false);
+    
+    // Wait for menu animation to complete before scrolling
+    setTimeout(() => {
+      if (targetElement) {
+        // Account for header height when scrolling
+        const headerHeight = document.querySelector('.header').offsetHeight;
+        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+        
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }, 300); // Match this with your menu transition time
   };
 
   return (

@@ -125,25 +125,25 @@ const INFO = {
 
 	projects: [
 		{
-			title: "Untethered",
+			title: "Shells",
 			description: "A poetic narrative exploring themes of connection and isolation.",
-			thumbnail: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=1025",
+			thumbnail: "/shells.png",
 			category: "Short Film",
 			year: "2023",
 			url: "https://vimeo.com/927267260"
 		},
 		{
-			title: "Echoes",
+			title: "Crossroads",
 			description: "Experimental narrative examining resonance through visual storytelling.",
-			thumbnail: "https://images.unsplash.com/photo-1518544801976-3e159def92d3?q=80&w=1287",
+			thumbnail: "/crossroads.png",
 			category: "Short Film", 
 			year: "2024",
 			url: "https://vimeo.com/959374007"
 		},
 		{
-			title: "Reflections",
+			title: "The Abuse of a Flower",
 			description: "A contemplative piece on memory and identity through visual metaphor.",
-			thumbnail: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=1471",
+			thumbnail: "/abuseofaflower.png",
 			category: "Short Film",
 			year: "2024",
 			url: "https://vimeo.com/959370566"
@@ -154,22 +154,6 @@ const INFO = {
 			thumbnail: "https://images.unsplash.com/photo-1470509037663-253afd7f0f51?q=80&w=1287",
 			category: "Student Film",
 			year: "2023",
-			url: "https://vimeo.com"
-		},
-		{
-			title: "The Passing Days",
-			description: "Character study focusing on a day in the life of an elderly musician.",
-			thumbnail: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=1470",
-			category: "Short Film",
-			year: "2022",
-			url: "https://vimeo.com"
-		},
-		{
-			title: "Natural Light Study",
-			description: "Visual exploration of natural lighting conditions throughout the day.",
-			thumbnail: "https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?q=80&w=1470",
-			category: "Experimental",
-			year: "2021",
 			url: "https://vimeo.com"
 		}
 	],

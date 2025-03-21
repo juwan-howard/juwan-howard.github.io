@@ -1,11 +1,11 @@
 const INFO = {
 	main: {
-		title: "Juwan Howard | Filmmaker",
+		title: "Juwan Howard | Narrative Director & Filmmaker",
 		name: "Juwan Howard",
 		email: "juwanrhoward@g.ucla.edu",
 		logo: "../logo.svg",
 		heroImage: "https://images.unsplash.com/photo-1485846234645-a62644f84728?q=80&w=1459",
-		subtitle: "Film Student & Aspiring Cinematographer",
+		subtitle: "MFA Narrative Directing Candidate at UCLA",
 		location: "Los Angeles, CA"
 	},
 
@@ -25,51 +25,51 @@ const INFO = {
 	],
 
 	about: {
-		title: "I'm Juwan Howard, a film student passionate about visual storytelling.",
-		description: "Film student and aspiring cinematographer based in Los Angeles, focused on creating visually compelling narratives.",
-		shortBio: "Currently pursuing a degree in Film Production at UCLA, specializing in cinematography and visual storytelling.",
-		tagline: "Capturing stories through light and shadow",
+		title: "I'm Juwan Howard, a Narrative Director & Filmmaker.",
+		description: "With a BA in Film and Media Studies from UC Berkeley and currently an MFA Narrative Directing candidate at UCLA, I create stories that celebrate cultural identity and creativity.",
+		shortBio: "Filmmaker dedicated to creating environments that uphold high standards while celebrating cultural identity and community.",
+		tagline: "Storytelling that honors both community and creativity",
 		profileImage: "https://images.unsplash.com/photo-1589903308904-1010c2294adc?q=80&w=1287",
 		biography: [
-			"I am a film student at UCLA's School of Theater, Film and Television, where I've been developing my skills as a cinematographer and visual storyteller. My passion for film began when I first picked up a camera at the age of 15, capturing the world around me and learning how to tell stories through images.",
-			"Throughout my academic journey, I've had the opportunity to work on various short films, documentaries, and experimental projects that have allowed me to explore different visual styles and techniques. I'm particularly drawn to naturalistic lighting and creating atmospheric moods that enhance narrative elements.",
-			"My approach to cinematography focuses on creating authentic visual experiences that serve the story while pushing creative boundaries. I believe that every frame should contribute to the emotional impact of a film, and I strive to create images that resonate with audiences."
+			"With a BA in Film and Media Studies from UC Berkeley and now in my second year as an MFA Narrative Directing candidate at UCLA, my path in filmmaking combines academic depth with hands-on experience. My studies have focused on film's power not solely as entertainment, but as a lens on culture and society.",
+			"I've been involved in roles across various positions; developing adaptability, conflict management, and a deep respect for diversity. These experiences continue to shape my approach to every project, and have provided me with gratitude, and understanding that this position of privilege should not be taken lightly.",
+			"Driven by a passion for storytelling, I aim to create environments that uphold high standards while celebrating cultural identity. I'm dedicated to generating stories that resonate, and grounded in a vision that honors both community and creativity. Two avenues that inspire on a day to day basis."
 		],
 		education: [
 			{
-				degree: "Bachelor of Arts in Film Production",
+				degree: "MFA in Narrative Directing",
 				institution: "UCLA School of Theater, Film and Television",
-				year: "Expected 2025"
+				year: "Current"
 			},
 			{
-				degree: "Film Studies Summer Program",
-				institution: "New York Film Academy",
-				year: "2021"
+				degree: "BA in Film and Media Studies",
+				institution: "UC Berkeley",
+				year: "Completed"
 			}
 		]
 	},
 
 	skills: [
 		{
-			category: "Cinematography",
+			category: "Directing",
 			items: [
-				"Camera Operation",
-				"Lighting Design",
-				"Composition",
-				"Color Theory",
-				"Visual Storytelling",
-				"Shot Planning"
+				"Narrative Storytelling",
+				"Actor Direction",
+				"Visual Direction",
+				"Script Analysis",
+				"Production Planning",
+				"Creative Leadership"
 			]
 		},
 		{
 			category: "Technical",
 			items: [
 				"Digital Cinema Cameras",
-				"Film Cameras",
-				"Grip Equipment",
-				"Lighting Equipment",
-				"Camera Movement Systems",
-				"Video Formats"
+				"Production Management",
+				"Shot Design",
+				"Editing",
+				"Screenwriting",
+				"Visual Storytelling"
 			]
 		}
 	],

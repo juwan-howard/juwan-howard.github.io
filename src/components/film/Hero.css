@@ -2,7 +2,6 @@
   height: 100vh;
   position: relative;
   background-size: cover;
-  background-position: center;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -114,12 +113,12 @@
   }
   
   .hero {
-    /* Position is now handled in JS component directly */
-    /* Remove contrast filter as it's handled in JS */
+    background-size: cover;
+    background-repeat: no-repeat;
   }
   
   .hero-overlay {
-    background-color: rgba(0, 0, 0, 0.35); /* Darker overlay for better contrast */
+    background-color: rgba(0, 0, 0, 0.25); /* Lighter overlay to ensure image visibility */
   }
   
   .hero-content {

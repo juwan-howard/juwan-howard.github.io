@@ -20,9 +20,10 @@ const Hero = () => {
 
   const heroStyle = {
     backgroundImage: `url(${silhouetteImg})`,
-    backgroundPosition: isMobile ? '16% center' : 'center',
-    // Add filter for mobile to increase contrast and visibility
-    filter: isMobile ? 'contrast(130%) brightness(0.95)' : 'none'
+    backgroundPosition: isMobile ? '18% center' : '60% center', // Shift right on desktop, adjust for mobile
+    backgroundSize: 'cover',
+    // More conservative filter that won't cause the image to disappear
+    filter: isMobile ? 'contrast(120%) brightness(1)' : 'none'
   };
 
   return (

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Header.css';
+import INFO from '../../data/user';
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -12,8 +13,8 @@ const Header = () => {
     <header className="header">
       <div className="header-container">
         <div className="logo">
-          <h1>JUWAN HOWARD</h1>
-          <span className="tagline">FILMMAKER / CINEMATOGRAPHER</span>
+          <h1>{INFO.main.name.toUpperCase()}</h1>
+          <span className="tagline">NARRATIVE DIRECTOR & FILMMAKER</span>
         </div>
         
         <div className={`menu-toggle ${menuOpen ? 'active' : ''}`} onClick={toggleMenu}>

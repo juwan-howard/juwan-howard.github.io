@@ -1,5 +1,6 @@
 import React from 'react';
 import './Footer.css';
+import INFO from '../../data/user';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -9,12 +10,12 @@ const Footer = () => {
       <div className="footer-container">
         <div className="footer-content">
           <div className="footer-info">
-            <h3>Juwan Howard</h3>
-            <p>Filmmaker & Cinematographer</p>
+            <h3>{INFO.main.name}</h3>
+            <p>Narrative Director & Filmmaker</p>
             <p className="contact-info">
-              <a href="mailto:contact@juwanhoward.com">contact@juwanhoward.com</a>
+              <a href={`mailto:${INFO.main.email}`}>{INFO.main.email}</a>
             </p>
-            <p className="contact-info">Los Angeles, CA</p>
+            <p className="contact-info">{INFO.main.location}</p>
           </div>
           
           <div className="footer-links">
@@ -33,10 +34,10 @@ const Footer = () => {
               <a href="https://instagram.com" className="social-icon" target="_blank" rel="noopener noreferrer">
                 <i className="fab fa-instagram">IG</i>
               </a>
-              <a href="https://vimeo.com" className="social-icon" target="_blank" rel="noopener noreferrer">
+              <a href="https://vimeo.com/user217257059" className="social-icon" target="_blank" rel="noopener noreferrer">
                 <i className="fab fa-vimeo-v">VI</i>
               </a>
-              <a href="https://linkedin.com" className="social-icon" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.linkedin.com/in/juwan-howard-2301851a3/" className="social-icon" target="_blank" rel="noopener noreferrer">
                 <i className="fab fa-linkedin-in">LI</i>
               </a>
             </div>

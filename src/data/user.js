@@ -12,7 +12,7 @@ const INFO = {
 	socials: [
 		{
 			platform: "vimeo",
-			url: "https://vimeo.com/"
+			url: "https://vimeo.com/user217257059"
 		},
 		{
 			platform: "instagram",
@@ -20,20 +20,20 @@ const INFO = {
 		},
 		{
 			platform: "linkedin",
-			url: "https://linkedin.com/"
+			url: "https://www.linkedin.com/in/juwan-howard-2301851a3/"
 		}
 	],
 
 	about: {
-		title: "I'm Juwan Howard, a Narrative Director & Filmmaker.",
-		description: "With a BA in Film and Media Studies from UC Berkeley and currently an MFA Narrative Directing candidate at UCLA, I create stories that celebrate cultural identity and creativity.",
-		shortBio: "Filmmaker dedicated to creating environments that uphold high standards while celebrating cultural identity and community.",
-		tagline: "Storytelling that honors both community and creativity",
+		title: "I'm Juwan Howard, a Narrative Director with a vision for cultural storytelling.",
+		description: "Blending academic rigor from UC Berkeley and UCLA with diverse production experience to create films that challenge, connect, and celebrate our shared humanity.",
+		shortBio: "Filmmaker dedicated to creating inclusive environments where authentic stories can flourish at the intersection of artistic excellence and cultural resonance.",
+		tagline: "Crafting narratives that bridge communities through cinema",
 		profileImage: "https://images.unsplash.com/photo-1589903308904-1010c2294adc?q=80&w=1287",
 		biography: [
-			"With a BA in Film and Media Studies from UC Berkeley and now in my second year as an MFA Narrative Directing candidate at UCLA, my path in filmmaking combines academic depth with hands-on experience. My studies have focused on film's power not solely as entertainment, but as a lens on culture and society.",
-			"I've been involved in roles across various positions; developing adaptability, conflict management, and a deep respect for diversity. These experiences continue to shape my approach to every project, and have provided me with gratitude, and understanding that this position of privilege should not be taken lightly.",
-			"Driven by a passion for storytelling, I aim to create environments that uphold high standards while celebrating cultural identity. I'm dedicated to generating stories that resonate, and grounded in a vision that honors both community and creativity. Two avenues that inspire on a day to day basis."
+			"My journey in filmmaking has been shaped by formal education and hands-on experience — from earning my BA in Film and Media Studies at UC Berkeley to my current pursuit of an MFA in Narrative Directing at UCLA. This academic foundation has deepened my understanding of cinema's unique power to transcend entertainment and serve as a critical lens through which we examine culture, identity, and society.",
+			"Through roles spanning direction, production, and creative development, I've cultivated adaptability and collaborative leadership while developing a profound respect for diverse perspectives. These experiences have fostered gratitude for my position within the filmmaking community and a responsibility to approach storytelling with intention and cultural awareness.",
+			"I approach each project with a commitment to creating spaces where artistic excellence and cultural authenticity can coexist. By centering both technical craft and human connection, I strive to develop narratives that resonate beyond the screen — stories that honor community voices while pushing creative boundaries. My work is guided by the belief that the most compelling cinema emerges when we celebrate both artistic innovation and cultural identity."
 		],
 		education: [
 			{

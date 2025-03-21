@@ -11,9 +11,8 @@
 }
 
 .contact-content {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 3rem;
+  display: flex;
+  justify-content: center;
   margin-top: 3rem;
 }
 
@@ -83,6 +82,8 @@
   background-color: rgba(255, 255, 255, 0.03);
   padding: 2.5rem;
   border-radius: 4px;
+  width: 100%;
+  max-width: 800px;
 }
 
 .contact-form {
@@ -223,18 +224,8 @@
 /* Responsive Styles */
 @media (max-width: 992px) {
   .contact-content {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-  }
-  
-  .contact-info {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-  
-  .info-item {
-    flex-basis: 48%;
+    display: flex;
+    flex-direction: column;
   }
 }
 
@@ -243,52 +234,34 @@
     padding: 4rem 0;
   }
   
-  .contact-info {
-    flex-direction: column;
-    gap: 2rem;
-  }
-  
-  .info-item {
-    flex-basis: 100%;
-  }
-  
   .contact-form-container {
-    padding: 1.5rem;
+    padding: 2rem 1.5rem;
   }
   
   .section-header h2 {
     font-size: 2rem;
-    margin-bottom: 0.8rem;
   }
   
   .contact-container {
     padding: 0 1.5rem;
   }
   
-  /* Prevent iOS zoom on input focus */
   input, textarea, select {
-    font-size: 16px;
+    padding: 0.8rem !important;
   }
   
-  /* Improve touch targets */
   .submit-btn, 
-  .new-message-btn, 
-  .social-link {
-    min-height: 44px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  .new-message-btn {
+    padding: 0.8rem !important;
+    font-size: 0.9rem !important;
   }
   
-  /* Make tap targets easier to hit */
   .form-group label {
-    padding: 0.3rem 0;
+    font-size: 0.85rem !important;
   }
   
-  /* Better focus states for accessibility */
   input:focus, 
   textarea:focus {
-    border-color: #fff;
-    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.3);
+    outline: none !important;
   }
 } 

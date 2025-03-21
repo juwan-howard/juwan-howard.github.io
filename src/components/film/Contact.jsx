@@ -1,47 +1,46 @@
 import React, { useState } from 'react';
 import './Contact.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEnvelope, faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import INFO from '../../data/user';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    subject: '',
     message: ''
   });
-  
-  const [status, setStatus] = useState({
-    submitted: false,
-    submitting: false,
-    info: { error: false, msg: null }
-  });
 
-  const [errors, setErrors] = useState({});
+  const [formErrors, setFormErrors] = useState({});
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submissionError, setSubmissionError] = useState(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Validate form and return boolean indicating validity
   const validateForm = () => {
-    const newErrors = {};
-    
-    // Name validation
+    const errors = {};
     if (!formData.name.trim()) {
-      newErrors.name = "Please enter your name";
+      errors.name = 'Name is required';
     }
-    
-    // Email validation
+
     if (!formData.email.trim()) {
-      newErrors.email = "Please enter your email address";
-    } else if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
-      newErrors.email = "Please enter a valid email address";
+      errors.email = 'Email is required';
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      errors.email = 'Email is invalid';
     }
-    
-    // Message validation
+
+    if (!formData.subject.trim()) {
+      errors.subject = 'Subject is required';
+    }
+
     if (!formData.message.trim()) {
-      newErrors.message = "Please enter a message";
-    } else if (formData.message.trim().length < 10) {
-      newErrors.message = "Your message is too short (minimum 10 characters)";
+      errors.message = 'Message is required';
+    } else if (formData.message.length < 10) {
+      errors.message = 'Message must be at least 10 characters';
     }
-    
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
+
+    setFormErrors(errors);
+    return Object.keys(errors).length === 0;
   };
 
   const handleInputChange = (e) => {
@@ -51,67 +50,49 @@ const Contact = () => {
       [name]: value
     });
     
-    // Clear error for this field when user types
-    if (errors[name]) {
-      setErrors(prev => ({
-        ...prev,
-        [name]: undefined
-      }));
+    // Clear error when user starts typing
+    if (formErrors[name]) {
+      setFormErrors({
+        ...formErrors,
+        [name]: null
+      });
     }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     
-    // Only proceed if form is valid
     if (!validateForm()) {
       return;
     }
     
-    setStatus({
-      submitted: false,
-      submitting: true,
-      info: { error: false, msg: null }
-    });
-
+    setIsSubmitting(true);
+    
     try {
-      // In a real implementation, send data to a server
-      // This is a placeholder that creates a mailto link
-      const subject = `Message from ${formData.name}`;
-      const body = `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage: ${formData.message}`;
+      // Simulate form submission with a delay
+      await new Promise(resolve => setTimeout(resolve, 1500));
       
-      // Create and click a mailto link (for demo purposes)
-      // Replace this with actual form submission in production
-      const mailtoLink = document.createElement('a');
-      mailtoLink.href = `mailto:${INFO.main.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-      mailtoLink.style.display = 'none';
-      document.body.appendChild(mailtoLink);
-      mailtoLink.click();
-      document.body.removeChild(mailtoLink);
+      // Success handling
+      setIsSubmitted(true);
+      setSubmissionError(null);
       
-      // Simulate server processing time
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      setStatus({
-        submitted: true,
-        submitting: false,
-        info: { error: false, msg: "Thank you for your message. I'll respond as soon as possible." }
-      });
-
       // Reset form
       setFormData({
         name: '',
         email: '',
+        subject: '',
         message: ''
       });
     } catch (error) {
-      console.error("Form submission error:", error);
-      setStatus({
-        submitted: false,
-        submitting: false,
-        info: { error: true, msg: "There was a problem sending your message. Please try again or email me directly." }
-      });
+      setSubmissionError('Failed to send message. Please try again later.');
+    } finally {
+      setIsSubmitting(false);
     }
+  };
+
+  const handleNewMessage = () => {
+    setIsSubmitted(false);
+    setSubmissionError(null);
   };
 
   return (
@@ -119,90 +100,70 @@ const Contact = () => {
       <div className="contact-container">
         <div className="section-header">
           <h2>Get In Touch</h2>
-          <p>Interested in collaborating on a project? Send me a message.</p>
+          <p>Have a question, feedback, or want to work together? Feel free to reach out!</p>
         </div>
-        
+
         <div className="contact-content">
-          <div className="contact-info">
-            <div className="info-item">
-              <h3>Contact Details</h3>
-              <p><strong>Email:</strong> <a href={`mailto:${INFO.main.email}`}>{INFO.main.email}</a></p>
-              <p><strong>Location:</strong> {INFO.main.location}</p>
-            </div>
-            
-            <div className="info-item">
-              <h3>Connect</h3>
-              <div className="social-links">
-                {INFO.socials.map((social, index) => (
-                  <a 
-                    key={index} 
-                    href={social.url} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="social-link"
-                    aria-label={`Connect on ${social.platform}`}
-                  >
-                    {social.platform}
-                  </a>
-                ))}
-              </div>
-            </div>
-          </div>
-          
           <div className="contact-form-container">
-            {status.info.error && (
-              <div className="message error" role="alert">
-                <p>{status.info.msg}</p>
+            {isSubmitted ? (
+              <div className="message success">
+                <h3>Message Sent!</h3>
+                <p>Thank you for reaching out. I'll get back to you as soon as possible.</p>
+                <button onClick={handleNewMessage} className="new-message-btn">Send Another Message</button>
               </div>
-            )}
-            
-            {status.submitted ? (
-              <div className="message success" role="status">
-                <p>{status.info.msg}</p>
-                <button 
-                  onClick={() => setStatus({ submitted: false, submitting: false, info: { error: false, msg: null } })}
-                  className="new-message-btn"
-                >
-                  Send Another Message
-                </button>
+            ) : submissionError ? (
+              <div className="message error">
+                <h3>Oops! Something went wrong</h3>
+                <p>{submissionError}</p>
+                <button onClick={handleNewMessage} className="new-message-btn">Try Again</button>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="contact-form" noValidate>
                 <div className="form-group">
-                  <label htmlFor="name">Name</label>
+                  <label htmlFor="name">Your Name</label>
                   <input
                     type="text"
                     id="name"
                     name="name"
                     value={formData.name}
                     onChange={handleInputChange}
-                    required
-                    aria-invalid={!!errors.name}
-                    aria-describedby={errors.name ? "name-error" : undefined}
+                    aria-invalid={formErrors.name ? "true" : "false"}
+                    aria-describedby={formErrors.name ? "name-error" : undefined}
                   />
-                  {errors.name && (
-                    <div className="error-message" id="name-error" role="alert">
-                      {errors.name}
-                    </div>
+                  {formErrors.name && (
+                    <div className="error-message" id="name-error">{formErrors.name}</div>
                   )}
                 </div>
                 
                 <div className="form-group">
-                  <label htmlFor="email">Email</label>
+                  <label htmlFor="email">Email Address</label>
                   <input
                     type="email"
                     id="email"
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
-                    required
-                    aria-invalid={!!errors.email}
-                    aria-describedby={errors.email ? "email-error" : undefined}
+                    aria-invalid={formErrors.email ? "true" : "false"}
+                    aria-describedby={formErrors.email ? "email-error" : undefined}
                   />
-                  {errors.email && (
-                    <div className="error-message" id="email-error" role="alert">
-                      {errors.email}
-                    </div>
+                  {formErrors.email && (
+                    <div className="error-message" id="email-error">{formErrors.email}</div>
+                  )}
+                </div>
+                
+                <div className="form-group">
+                  <label htmlFor="subject">Subject</label>
+                  <input
+                    type="text"
+                    id="subject"
+                    name="subject"
+                    value={formData.subject}
+                    onChange={handleInputChange}
+                    aria-invalid={formErrors.subject ? "true" : "false"}
+                    aria-describedby={formErrors.subject ? "subject-error" : undefined}
+                  />
+                  {formErrors.subject && (
+                    <div className="error-message" id="subject-error">{formErrors.subject}</div>
                   )}
                 </div>
                 
@@ -211,26 +172,23 @@ const Contact = () => {
                   <textarea
                     id="message"
                     name="message"
+                    rows="6"
                     value={formData.message}
                     onChange={handleInputChange}
-                    rows="5"
-                    required
-                    aria-invalid={!!errors.message}
-                    aria-describedby={errors.message ? "message-error" : undefined}
+                    aria-invalid={formErrors.message ? "true" : "false"}
+                    aria-describedby={formErrors.message ? "message-error" : undefined}
                   ></textarea>
-                  {errors.message && (
-                    <div className="error-message" id="message-error" role="alert">
-                      {errors.message}
-                    </div>
+                  {formErrors.message && (
+                    <div className="error-message" id="message-error">{formErrors.message}</div>
                   )}
                 </div>
                 
                 <button 
                   type="submit" 
                   className="submit-btn"
-                  disabled={status.submitting}
+                  disabled={isSubmitting}
                 >
-                  {status.submitting ? 'Sending...' : 'Send Message'}
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
                 </button>
               </form>
             )}

@@ -20,7 +20,9 @@ const Hero = () => {
 
   const heroStyle = {
     backgroundImage: `url(${silhouetteImg})`,
-    backgroundPosition: isMobile ? '20% center' : 'center'
+    backgroundPosition: isMobile ? '16% center' : 'center',
+    // Add filter for mobile to increase contrast and visibility
+    filter: isMobile ? 'contrast(130%) brightness(0.95)' : 'none'
   };
 
   return (

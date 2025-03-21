@@ -1,6 +1,8 @@
 import React, { lazy, Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import "./App.css";
+import INFO from "./data/user";
 
 // Regular imports for critical components
 import Header from './components/layout/Header';
@@ -10,11 +12,6 @@ const HomePage = lazy(() => import("./pages/HomePage"));
 const AboutPage = lazy(() => import("./pages/AboutPage"));
 const ContactPage = lazy(() => import("./pages/ContactPage"));
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage"));
-
-// Import data
-import INFO from "./data/user";
-
-import "./App.css";
 
 // Simple loading component
 const LoadingFallback = () => (

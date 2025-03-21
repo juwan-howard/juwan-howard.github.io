@@ -1,5 +1,7 @@
 import React from 'react';
 import './About.css';
+import INFO from '../../data/user';
+import { Link } from 'react-router-dom';
 
 const About = () => {
   return (
@@ -9,47 +11,42 @@ const About = () => {
           <div className="about-text">
             <h2>About Me</h2>
             <p className="lead">
-              I'm a cinematographer and filmmaker with a passion for visual storytelling.
+              {INFO.about.title}
             </p>
             <p>
-              With over 5 years of experience in the film industry, I've developed a keen eye for composition, 
-              lighting, and visual narratives. My work spans from short films and documentaries to commercials 
-              and music videos.
+              {INFO.about.description}
             </p>
             <p>
-              I believe in the power of cinematography to evoke emotions and create connections. My approach 
-              combines technical precision with artistic sensibility, resulting in visually compelling stories 
-              that resonate with audiences.
-            </p>
-            <p>
-              When I'm not behind the camera, I'm constantly exploring new visual techniques, studying classic 
-              films, and collaborating with other creative professionals to push the boundaries of visual storytelling.
+              {INFO.about.shortBio}
             </p>
             
             <div className="skills">
               <div className="skill-column">
-                <h3>Technical Skills</h3>
+                <h3>Education</h3>
                 <ul>
-                  <li>Digital Cinematography</li>
-                  <li>Lighting Design</li>
-                  <li>Camera Operation</li>
-                  <li>Color Grading</li>
+                  {INFO.about.education.map((edu, index) => (
+                    <li key={index}>{edu.degree} - {edu.institution}</li>
+                  ))}
                 </ul>
               </div>
               <div className="skill-column">
-                <h3>Equipment</h3>
+                <h3>Focus Areas</h3>
                 <ul>
-                  <li>Sony FX6</li>
-                  <li>Arri Alexa Mini</li>
-                  <li>RED Digital Cinema</li>
-                  <li>DJI Ronin</li>
+                  <li>Narrative Direction</li>
+                  <li>Cultural Storytelling</li>
+                  <li>Production Leadership</li>
+                  <li>Visual Narrative</li>
                 </ul>
               </div>
+            </div>
+            
+            <div className="learn-more">
+              <Link to="/about">Learn more about my work and approach →</Link>
             </div>
           </div>
           
           <div className="about-image">
-            <img src="https://images.unsplash.com/photo-1543536481-4110d6bad0bf?q=80&w=1470" alt="Filmmaker at work" />
+            <img src={INFO.about.profileImage} alt="Juwan Howard - Narrative Director & Filmmaker" />
           </div>
         </div>
       </div>

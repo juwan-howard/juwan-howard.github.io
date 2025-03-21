@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './Header.css';
 import INFO from '../../data/user';
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const navRef = useRef(null);
+  const menuToggleRef = useRef(null);
   
   // Add useEffect to handle body class and prevent scroll when menu is open
   useEffect(() => {
@@ -19,12 +21,43 @@ const Header = () => {
     };
   }, [menuOpen]);
   
+  // Add event listener for clicks outside the menu
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      // Close menu when clicking outside nav and menu toggle
+      if (menuOpen && 
+          navRef.current && 
+          menuToggleRef.current &&
+          !navRef.current.contains(event.target) && 
+          !menuToggleRef.current.contains(event.target)) {
+        setMenuOpen(false);
+      }
+    };
+
+    // Add overlay click handler
+    const handleOverlayClick = (event) => {
+      if (event.target.classList.contains('menu-overlay')) {
+        setMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('touchstart', handleClickOutside);
+    document.addEventListener('click', handleOverlayClick);
+    
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
+      document.removeEventListener('click', handleOverlayClick);
+    };
+  }, [menuOpen]);
+  
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
   
   // Close menu when clicking on a navigation link
-  const handleNavClick = () => {
+  const handleNavClick = (e) => {
     setMenuOpen(false);
   };
 
@@ -36,11 +69,18 @@ const Header = () => {
           <span className="tagline">NARRATIVE DIRECTOR & FILMMAKER</span>
         </div>
         
-        <div className={`menu-toggle ${menuOpen ? 'active' : ''}`} onClick={toggleMenu}>
+        <div 
+          className={`menu-toggle ${menuOpen ? 'active' : ''}`} 
+          onClick={toggleMenu}
+          ref={menuToggleRef}
+        >
           <div className="hamburger"></div>
         </div>
         
-        <nav className={`nav ${menuOpen ? 'open' : ''}`}>
+        <nav 
+          className={`nav ${menuOpen ? 'open' : ''}`}
+          ref={navRef}
+        >
           <ul>
             <li><a href="#work" onClick={handleNavClick}>Work</a></li>
             <li><a href="#about" onClick={handleNavClick}>About</a></li>
@@ -49,6 +89,9 @@ const Header = () => {
           </ul>
         </nav>
       </div>
+      
+      {/* Add a clickable overlay for mobile */}
+      {menuOpen && <div className="menu-overlay" onClick={() => setMenuOpen(false)}></div>}
     </header>
   );
 };

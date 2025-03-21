@@ -1,12 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Header.css';
 import INFO from '../../data/user';
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   
+  // Add useEffect to handle body class and prevent scroll when menu is open
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.classList.add('menu-open');
+    } else {
+      document.body.classList.remove('menu-open');
+    }
+    
+    // Cleanup function
+    return () => {
+      document.body.classList.remove('menu-open');
+    };
+  }, [menuOpen]);
+  
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
+  };
+  
+  // Close menu when clicking on a navigation link
+  const handleNavClick = () => {
+    setMenuOpen(false);
   };
 
   return (
@@ -23,10 +42,10 @@ const Header = () => {
         
         <nav className={`nav ${menuOpen ? 'open' : ''}`}>
           <ul>
-            <li><a href="#work">Work</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#showreel">Showreel</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#work" onClick={handleNavClick}>Work</a></li>
+            <li><a href="#about" onClick={handleNavClick}>About</a></li>
+            <li><a href="#showreel" onClick={handleNavClick}>Showreel</a></li>
+            <li><a href="#contact" onClick={handleNavClick}>Contact</a></li>
           </ul>
         </nav>
       </div>

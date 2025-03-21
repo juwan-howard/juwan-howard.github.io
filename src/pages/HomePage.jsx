@@ -7,6 +7,7 @@ import Hero from '../components/film/Hero';
 import WorkGrid from '../components/film/WorkGrid';
 import ShowReel from '../components/film/ShowReel';
 import About from '../components/film/About';
+import Contact from '../components/film/Contact';
 import Footer from '../components/layout/Footer';
 
 // Import data
@@ -34,6 +35,7 @@ const HomePage = () => {
         <WorkGrid />
         <ShowReel />
         <About />
+        <Contact />
       </main>
       <Footer />
     </React.Fragment>

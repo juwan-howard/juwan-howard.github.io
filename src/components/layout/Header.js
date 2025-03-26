@@ -66,7 +66,7 @@ const Header = () => {
       <div className="header-container">
         <div className="logo">
           <h1>{INFO.main.name.toUpperCase()}</h1>
-          <span className="tagline">NARRATIVE DIRECTOR & FILMMAKER</span>
+          <span className="tagline">FILMMAKER</span>
         </div>
         
         <div 
@@ -84,7 +84,6 @@ const Header = () => {
           <ul>
             <li><a href="#work" onClick={handleNavClick}>Work</a></li>
             <li><a href="#about" onClick={handleNavClick}>About</a></li>
-            <li><a href="#showreel" onClick={handleNavClick}>Showreel</a></li>
             <li><a href="#contact" onClick={handleNavClick}>Contact</a></li>
           </ul>
         </nav>

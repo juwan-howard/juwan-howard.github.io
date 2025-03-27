@@ -130,15 +130,15 @@ const INFO = {
 			thumbnail: "/shells.png",
 			category: "Short Film",
 			year: "2023",
-			url: "https://vimeo.com/927267260"
+			url: "https://player.vimeo.com/video/927267260"
 		},
 		{
 			title: "Crossroads",
 			description: "Experimental narrative examining resonance through visual storytelling.",
 			thumbnail: "/crossroads.png",
-			category: "Short Film", 
+			category: "Short Film",
 			year: "2024",
-			url: "https://vimeo.com/959374007"
+			url: "https://player.vimeo.com/video/959374007"
 		},
 		{
 			title: "The Abuse of a Flower",
@@ -146,7 +146,7 @@ const INFO = {
 			thumbnail: "/abuseofaflower.png",
 			category: "Short Film",
 			year: "2024",
-			url: "https://vimeo.com/959370566"
+			url: "https://player.vimeo.com/video/959370566"
 		}
 	]
 };

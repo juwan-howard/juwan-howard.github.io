@@ -24,7 +24,7 @@
 }
 
 .about-title {
-  font-family: "Reenie Beanie", cursive;
+  font-family: "Indie Flower", cursive;
   font-size: 3.5rem;
   font-weight: 400;
   margin-bottom: 1rem;
@@ -73,7 +73,7 @@
 }
 
 .about-content h3 {
-  font-family: "Reenie Beanie", cursive;
+  font-family: "Indie Flower", cursive;
   font-size: 2.5rem;
   font-weight: 400;
   margin-bottom: 1.5rem;
@@ -86,6 +86,14 @@
   line-height: 1.8;
   margin-bottom: 1.5rem;
   color: #333333;
+}
+
+.about-content p.personal-statement {
+  font-family: "Reenie Beanie", cursive;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  margin-bottom: 2rem;
+  color: #000000;
 }
 
 .stats-section {
@@ -101,7 +109,7 @@
 }
 
 .stat-number {
-  font-family: "Reenie Beanie", cursive;
+  font-family: "Indie Flower", cursive;
   font-size: 3rem;
   font-weight: 500;
   margin-bottom: 0.5rem;
@@ -141,6 +149,10 @@
   
   .about-content h3 {
     font-size: 2.2rem;
+  }
+  
+  .about-content p.personal-statement {
+    font-size: 1.4rem;
   }
   
   .stats-section {

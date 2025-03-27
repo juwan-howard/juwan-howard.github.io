@@ -7,8 +7,15 @@ import INFO from "../../data/user";
 const WorkGrid = () => {
   const [selectedVideo, setSelectedVideo] = useState(null);
 
+  const convertToEmbedUrl = (url) => {
+    // Extract video ID from Vimeo URL
+    const videoId = url.split('/').pop();
+    // Return embed URL
+    return `https://player.vimeo.com/video/${videoId}`;
+  };
+
   const handleVideoClick = (videoUrl) => {
-    setSelectedVideo(videoUrl);
+    setSelectedVideo(convertToEmbedUrl(videoUrl));
   };
 
   const handleCloseVideo = () => {

@@ -1,28 +1,27 @@
 const INFO = {
 	main: {
-		title: "Juwan Howard | Narrative Director & Filmmaker",
-		name: "Juwan Howard",
+		title: "Juwan R. Howard | Filmmaker",
+		name: "Juwan R. Howard",
 		email: "juwanrhoward@g.ucla.edu",
 		logo: "../logo.svg",
 		heroImage: "https://images.unsplash.com/photo-1485846234645-a62644f84728?q=80&w=1459",
 		subtitle: "MFA Narrative Directing Candidate at UCLA",
-		location: "Los Angeles, CA"
+		location: "Los Angeles, CA",
+		socials: [
+			{
+				platform: "vimeo",
+				url: "https://vimeo.com/user217257059"
+			},
+			{
+				platform: "instagram",
+				url: "https://instagram.com/"
+			},
+			{
+				platform: "linkedin",
+				url: "https://www.linkedin.com/in/juwan-howard-2301851a3/"
+			}
+		]
 	},
-
-	socials: [
-		{
-			platform: "vimeo",
-			url: "https://vimeo.com/user217257059"
-		},
-		{
-			platform: "instagram",
-			url: "https://instagram.com/"
-		},
-		{
-			platform: "linkedin",
-			url: "https://www.linkedin.com/in/juwan-howard-2301851a3/"
-		}
-	],
 
 	about: {
 		title: "I'm Juwan Howard, a Narrative Director with a vision for cultural storytelling.",
@@ -46,7 +45,8 @@ const INFO = {
 				institution: "UC Berkeley",
 				year: "Completed"
 			}
-		]
+		],
+		bio: "I am a filmmaker based in Los Angeles, with a BA from UC Berkeley and currently an MFA candidate at UCLA. My work focuses on storytelling that celebrates cultural identity and creates meaningful connections between communities."
 	},
 
 	skills: [

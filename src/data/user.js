@@ -28,7 +28,7 @@ const INFO = {
 		description: "Drawing from my academic foundation at UC Berkeley and UCLA, I create films that serve as both entertainment and cultural commentary, challenging conventional narratives while celebrating diverse perspectives.",
 		shortBio: "Filmmaker dedicated to crafting narratives that bridge communities through cinema, with a focus on cultural identity and authentic storytelling.",
 		tagline: "Crafting narratives that bridge communities through cinema",
-		profileImage: "https://images.unsplash.com/photo-1589903308904-1010c2294adc?q=80&w=1287",
+		profileImage: "/silhouette2.jpg",
 		biography: [
 			"My journey in filmmaking combines academic rigor with practical experience, from my BA in Film and Media Studies at UC Berkeley to my current pursuit of an MFA in Narrative Directing at UCLA. This foundation has deepened my understanding of cinema's power to transcend entertainment and serve as a critical lens through which we examine culture, identity, and society.",
 			"Through various roles in production and creative development, I've cultivated adaptability and collaborative leadership while developing a profound respect for diverse perspectives. These experiences have fostered gratitude for my position within the filmmaking community and a responsibility to approach storytelling with intention and cultural awareness.",

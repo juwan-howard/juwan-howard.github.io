@@ -17,7 +17,7 @@ const About = () => {
         <div className="about-content">
           <div className="about-text">
             <h2>About Me</h2>
-            <p className="lead">
+            <p className="lead personal-statement">
               {INFO.about.title}
             </p>
             <p>

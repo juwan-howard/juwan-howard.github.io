@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import VideoOverlay from './VideoOverlay';
+import INFO from '../../data/user';
 import './Projects.css';
 
 const Projects = () => {

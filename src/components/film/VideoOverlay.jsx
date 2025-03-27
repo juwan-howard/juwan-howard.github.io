@@ -1,12 +1,36 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './VideoOverlay.css';
 
 const VideoOverlay = ({ videoUrl, onClose }) => {
-  console.log('VideoOverlay rendered with URL:', videoUrl);
+  useEffect(() => {
+    console.log('VideoOverlay mounted with URL:', videoUrl);
+    // Prevent body scrolling when overlay is open
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [videoUrl]);
+
+  const handleOverlayClick = (e) => {
+    console.log('Overlay clicked');
+    onClose();
+  };
+
+  const handleModalClick = (e) => {
+    console.log('Modal clicked');
+    e.stopPropagation();
+  };
+
+  const handleCloseClick = (e) => {
+    console.log('Close button clicked');
+    e.stopPropagation();
+    onClose();
+  };
+
   return (
-    <div className="video-overlay" onClick={onClose}>
-      <div className="video-modal" onClick={e => e.stopPropagation()}>
-        <button className="close-button" onClick={onClose}>×</button>
+    <div className="video-overlay" onClick={handleOverlayClick}>
+      <div className="video-modal" onClick={handleModalClick}>
+        <button className="close-button" onClick={handleCloseClick}>×</button>
         <div className="video-wrapper">
           <div className="video-container">
             <iframe

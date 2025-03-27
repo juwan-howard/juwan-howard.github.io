@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import VideoOverlay from "./VideoOverlay";
 
 // Import data
@@ -7,13 +7,20 @@ import INFO from "../../data/user";
 const WorkGrid = () => {
   const [selectedVideo, setSelectedVideo] = useState(null);
 
+  useEffect(() => {
+    console.log('WorkGrid mounted');
+    console.log('Available projects:', INFO.projects);
+  }, []);
+
   const handleVideoClick = (e, videoUrl) => {
     e.preventDefault();
     e.stopPropagation();
+    console.log('Video clicked with URL:', videoUrl);
     setSelectedVideo(videoUrl);
   };
 
   const handleCloseVideo = () => {
+    console.log('Closing video');
     setSelectedVideo(null);
   };
 
@@ -44,6 +51,11 @@ const WorkGrid = () => {
 };
 
 const ProjectCard = ({ project, onVideoClick }) => {
+  useEffect(() => {
+    console.log('ProjectCard mounted for:', project.title);
+    console.log('Project URL:', project.url);
+  }, [project]);
+
   return (
     <div className="group relative overflow-hidden rounded-lg">
       {/* Thumbnail */}

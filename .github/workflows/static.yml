@@ -1,0 +1,17 @@
+name: Empty Workflow
+
+on:
+  # Runs on pushes to the main branch
+  push:
+    branches: [ "none" ]  # Set to "none" so it never runs
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Empty jobs that don't do anything
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: No operation
+        run: echo "This workflow is intentionally empty to disable automatic deployment."

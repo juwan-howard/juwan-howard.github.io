@@ -28,8 +28,8 @@ const ContactPage = () => {
 
       <Header />
       <main className="contact-page">
-        <div className="contact-container mx-auto px-4 py-16">
-          <div className="text-center mb-16">
+        <div className="contact-container">
+          <div className="text-center mb-16 w-full">
             <h1 className="text-4xl md:text-5xl mb-6 indie-flower">Get In Touch</h1>
             <p className="text-lg mb-12 max-w-2xl mx-auto">
               Have a question, interested in collaboration, or want to discuss a project? 

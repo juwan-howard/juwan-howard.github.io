@@ -162,7 +162,7 @@ const ContactForm = () => {
 
   return (
     <div className="contact-form-wrapper w-full flex justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-md w-full mx-auto max-w-md transition-all duration-300 hover:shadow-lg">
+      <div className="bg-white p-8 rounded-lg shadow-md w-full transition-all duration-300 hover:shadow-lg">
         <h2 className="text-2xl font-bold mb-6 text-center indie-flower">Send a Message</h2>
 
         {status.info.error && (

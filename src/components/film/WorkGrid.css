@@ -138,6 +138,13 @@
   color: #ffffff;
 }
 
+/* Special styling for longer title "The Abuse of a Flower" */
+.long-title {
+  font-size: 1.4rem;
+  letter-spacing: 0px;
+  line-height: 1.2;
+}
+
 .work-item-description {
   font-family: "Indie Flower", cursive;
   font-size: 1rem;

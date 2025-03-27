@@ -40,7 +40,7 @@ const WorkGrid = () => {
                 <img src={project.thumbnail} alt={project.title} />
                 <div className="work-overlay">
                   <div className="work-info">
-                    <h3>{project.title}</h3>
+                    <h3 className={project.title === "The Abuse of a Flower" ? "long-title" : ""}>{project.title}</h3>
                     <p>{project.category} | {project.year}</p>
                     <a href={project.url} target="_blank" rel="noopener noreferrer" className="view-project">View Project</a>
                   </div>

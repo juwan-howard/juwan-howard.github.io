@@ -114,7 +114,9 @@ const ProjectCard = ({ project, onVideoClick }) => {
       
       {/* Overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-        <h3 className="text-xl font-semibold text-white mb-1">{project.title}</h3>
+        <h3 className={`text-xl font-semibold text-white mb-1 ${project.title === "The Abuse of a Flower" ? "text-sm md:text-base" : ""}`}>
+          {project.title}
+        </h3>
         <p className="text-gray-300 mb-3">{project.category}</p>
         
         <button 

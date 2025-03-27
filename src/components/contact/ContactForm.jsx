@@ -161,7 +161,7 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-2xl mx-auto transition-all duration-300 hover:shadow-lg">
+    <div className="bg-white p-8 rounded-lg shadow-md mx-auto w-full max-w-xl transition-all duration-300 hover:shadow-lg">
       <h2 className="text-2xl font-bold mb-6 text-center indie-flower">Send a Message</h2>
 
       {status.info.error && (
@@ -188,7 +188,7 @@ const ContactForm = () => {
           </div>
         </div>
       ) : (
-        <form onSubmit={handleSubmit} className="w-full space-y-5 max-w-xl mx-auto" noValidate>
+        <form onSubmit={handleSubmit} className="w-full space-y-5" noValidate>
           <div className="form-group">
             <label htmlFor="name" className="block text-gray-700 mb-2 indie-flower text-lg">Your Name</label>
             <input
@@ -293,12 +293,12 @@ const ContactForm = () => {
             >
               {status.submitting ? (
                 <>
-                  <FontAwesomeIcon icon={faSpinner} className="animate-spin" />
+                  <FontAwesomeIcon icon={faSpinner} className="animate-spin mr-2" />
                   <span>Sending...</span>
                 </>
               ) : (
                 <>
-                  <FontAwesomeIcon icon={faPaperPlane} />
+                  <FontAwesomeIcon icon={faPaperPlane} className="mr-2" />
                   <span>Send Message</span>
                 </>
               )}

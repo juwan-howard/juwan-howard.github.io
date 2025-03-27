@@ -323,6 +323,7 @@ section {
 .form-group {
   margin-bottom: 1.5rem;
   transition: all 0.3s ease;
+  width: 100%;
 }
 
 .form-group:focus-within {
@@ -340,11 +341,22 @@ section {
   max-width: 1200px;
   margin: 0 auto;
   padding: var(--spacing-8) var(--spacing-4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .contact-form-container {
-  max-width: 650px;
+  max-width: 550px;
   margin: 0 auto;
+  width: 100%;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 
 .contact-form button {
@@ -370,10 +382,22 @@ section {
   box-shadow: 0 0 0 2px rgba(0,0,0,0.1);
 }
 
+/* Ensure contact page elements are properly centered */
+.contact-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 /* Center the form on smaller screens */
 @media (max-width: 768px) {
   .contact-form-container {
     padding: 0 var(--spacing-4);
+    width: 90%;
   }
 }
 

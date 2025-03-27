@@ -1,8 +1,9 @@
+# DISABLED - Using npm run deploy with gh-pages package instead
 name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [ main ]
+    branches: [ none ] # Disabled by changing branch name
   workflow_dispatch:
 
 jobs:

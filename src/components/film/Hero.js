@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Hero.css';
 import INFO from '../../data/user';
-import silhouetteImg from '../../assets/silhouette.jpg';
+import firstImage from '../../assets/first_image.JPG';
 
 const Hero = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
@@ -19,7 +19,7 @@ const Hero = () => {
   }, []);
 
   const heroStyle = {
-    backgroundImage: `url(${silhouetteImg})`,
+    backgroundImage: `url(${firstImage})`,
     backgroundPosition: isMobile ? '16% center' : 'center',
     backgroundSize: 'cover'
   };

@@ -162,7 +162,7 @@ const ContactForm = () => {
 
   return (
     <div className="contact-form-wrapper w-full flex justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-md w-full transition-all duration-300 hover:shadow-lg">
+      <div className="bg-white p-8 rounded-lg shadow-md w-full transition-all duration-300 hover:shadow-lg" style={{maxWidth: "500px", margin: "0 auto", boxShadow: "0 4px 6px rgba(0,0,0,0.1)"}}>
         <h2 className="text-2xl font-bold mb-6 text-center indie-flower">Send a Message</h2>
 
         {status.info.error && (
@@ -183,15 +183,16 @@ const ContactForm = () => {
                 className="px-6 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 transition-colors indie-flower"
                 onClick={() => setStatus({ submitted: false, submitting: false, info: { error: false, msg: null } })}
                 aria-label="Send another message"
+                style={{cursor: "pointer"}}
               >
                 Send Another Message
               </button>
             </div>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="w-full space-y-5" noValidate>
-            <div className="form-group">
-              <label htmlFor="name" className="block text-gray-700 mb-2 indie-flower text-lg">Your Name</label>
+          <form onSubmit={handleSubmit} className="w-full space-y-5" noValidate style={{width: "100%"}}>
+            <div className="form-group" style={{marginBottom: "1.5rem"}}>
+              <label htmlFor="name" className="block text-gray-700 mb-2 indie-flower text-lg" style={{display: "block", marginBottom: "0.5rem", fontSize: "1.1rem"}}>Your Name</label>
               <input
                 type="text"
                 id="name"
@@ -206,6 +207,7 @@ const ContactForm = () => {
                 aria-invalid={errors.name ? "true" : "false"}
                 aria-describedby={errors.name ? "name-error" : undefined}
                 required
+                style={{width: "100%", padding: "12px 16px", borderRadius: "4px", border: "1px solid #eaeaea"}}
               />
               {errors.name && (
                 <div id="name-error" className="text-red-500 text-sm mt-1 animate-fadeIn" role="alert">
@@ -214,8 +216,8 @@ const ContactForm = () => {
               )}
             </div>
 
-            <div className="form-group">
-              <label htmlFor="email" className="block text-gray-700 mb-2 indie-flower text-lg">Your Email</label>
+            <div className="form-group" style={{marginBottom: "1.5rem"}}>
+              <label htmlFor="email" className="block text-gray-700 mb-2 indie-flower text-lg" style={{display: "block", marginBottom: "0.5rem", fontSize: "1.1rem"}}>Your Email</label>
               <input
                 type="email"
                 id="email"
@@ -230,6 +232,7 @@ const ContactForm = () => {
                 aria-invalid={errors.email ? "true" : "false"}
                 aria-describedby={errors.email ? "email-error" : undefined}
                 required
+                style={{width: "100%", padding: "12px 16px", borderRadius: "4px", border: "1px solid #eaeaea"}}
               />
               {errors.email && (
                 <div id="email-error" className="text-red-500 text-sm mt-1 animate-fadeIn" role="alert">
@@ -238,8 +241,8 @@ const ContactForm = () => {
               )}
             </div>
 
-            <div className="form-group">
-              <label htmlFor="subject" className="block text-gray-700 mb-2 indie-flower text-lg">Subject</label>
+            <div className="form-group" style={{marginBottom: "1.5rem"}}>
+              <label htmlFor="subject" className="block text-gray-700 mb-2 indie-flower text-lg" style={{display: "block", marginBottom: "0.5rem", fontSize: "1.1rem"}}>Subject</label>
               <input
                 type="text"
                 id="subject"
@@ -254,6 +257,7 @@ const ContactForm = () => {
                 aria-invalid={errors.subject ? "true" : "false"}
                 aria-describedby={errors.subject ? "subject-error" : undefined}
                 required
+                style={{width: "100%", padding: "12px 16px", borderRadius: "4px", border: "1px solid #eaeaea"}}
               />
               {errors.subject && (
                 <div id="subject-error" className="text-red-500 text-sm mt-1 animate-fadeIn" role="alert">
@@ -262,8 +266,8 @@ const ContactForm = () => {
               )}
             </div>
 
-            <div className="form-group">
-              <label htmlFor="message" className="block text-gray-700 mb-2 indie-flower text-lg">Your Message</label>
+            <div className="form-group" style={{marginBottom: "1.5rem"}}>
+              <label htmlFor="message" className="block text-gray-700 mb-2 indie-flower text-lg" style={{display: "block", marginBottom: "0.5rem", fontSize: "1.1rem"}}>Your Message</label>
               <textarea
                 id="message"
                 name="message"
@@ -277,6 +281,7 @@ const ContactForm = () => {
                 aria-invalid={errors.message ? "true" : "false"}
                 aria-describedby={errors.message ? "message-error" : undefined}
                 required
+                style={{width: "100%", padding: "12px 16px", borderRadius: "4px", border: "1px solid #eaeaea", minHeight: "180px"}}
               ></textarea>
               {errors.message && (
                 <div id="message-error" className="text-red-500 text-sm mt-1 animate-fadeIn" role="alert">
@@ -285,12 +290,23 @@ const ContactForm = () => {
               )}
             </div>
 
-            <div className="form-group text-center mt-8">
+            <div className="form-group text-center mt-8" style={{textAlign: "center", marginTop: "2rem"}}>
               <button
                 type="submit"
                 className="px-8 py-3 bg-black text-white rounded-md hover:bg-gray-800 transition-colors inline-flex items-center justify-center space-x-2 indie-flower text-lg"
                 disabled={status.submitting}
                 aria-label="Send Message"
+                style={{
+                  backgroundColor: "black", 
+                  color: "white", 
+                  padding: "0.75rem 2rem", 
+                  borderRadius: "0.375rem", 
+                  cursor: "pointer",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  fontFamily: "'Indie Flower', cursive"
+                }}
               >
                 {status.submitting ? (
                   <>

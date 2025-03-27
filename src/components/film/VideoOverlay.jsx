@@ -3,26 +3,75 @@ import './VideoOverlay.css';
 
 const VideoOverlay = ({ videoUrl, onClose }) => {
   useEffect(() => {
-    console.log('VideoOverlay mounted with URL:', videoUrl);
+    // Add a visible debug message
+    const debugDiv = document.createElement('div');
+    debugDiv.style.position = 'fixed';
+    debugDiv.style.top = '10px';
+    debugDiv.style.left = '10px';
+    debugDiv.style.backgroundColor = 'red';
+    debugDiv.style.color = 'white';
+    debugDiv.style.padding = '10px';
+    debugDiv.style.zIndex = '9999';
+    debugDiv.textContent = `VideoOverlay mounted with URL: ${videoUrl}`;
+    document.body.appendChild(debugDiv);
+
     // Prevent body scrolling when overlay is open
     document.body.style.overflow = 'hidden';
+    
     return () => {
       document.body.style.overflow = 'unset';
+      document.body.removeChild(debugDiv);
     };
   }, [videoUrl]);
 
   const handleOverlayClick = (e) => {
-    console.log('Overlay clicked');
+    // Add a visible debug message
+    const debugDiv = document.createElement('div');
+    debugDiv.style.position = 'fixed';
+    debugDiv.style.top = '50px';
+    debugDiv.style.left = '10px';
+    debugDiv.style.backgroundColor = 'blue';
+    debugDiv.style.color = 'white';
+    debugDiv.style.padding = '10px';
+    debugDiv.style.zIndex = '9999';
+    debugDiv.textContent = 'Overlay clicked';
+    document.body.appendChild(debugDiv);
+    setTimeout(() => document.body.removeChild(debugDiv), 2000);
+
     onClose();
   };
 
   const handleModalClick = (e) => {
-    console.log('Modal clicked');
+    // Add a visible debug message
+    const debugDiv = document.createElement('div');
+    debugDiv.style.position = 'fixed';
+    debugDiv.style.top = '90px';
+    debugDiv.style.left = '10px';
+    debugDiv.style.backgroundColor = 'green';
+    debugDiv.style.color = 'white';
+    debugDiv.style.padding = '10px';
+    debugDiv.style.zIndex = '9999';
+    debugDiv.textContent = 'Modal clicked';
+    document.body.appendChild(debugDiv);
+    setTimeout(() => document.body.removeChild(debugDiv), 2000);
+
     e.stopPropagation();
   };
 
   const handleCloseClick = (e) => {
-    console.log('Close button clicked');
+    // Add a visible debug message
+    const debugDiv = document.createElement('div');
+    debugDiv.style.position = 'fixed';
+    debugDiv.style.top = '130px';
+    debugDiv.style.left = '10px';
+    debugDiv.style.backgroundColor = 'purple';
+    debugDiv.style.color = 'white';
+    debugDiv.style.padding = '10px';
+    debugDiv.style.zIndex = '9999';
+    debugDiv.textContent = 'Close button clicked';
+    document.body.appendChild(debugDiv);
+    setTimeout(() => document.body.removeChild(debugDiv), 2000);
+
     e.stopPropagation();
     onClose();
   };

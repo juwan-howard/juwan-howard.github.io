@@ -8,19 +8,54 @@ const WorkGrid = () => {
   const [selectedVideo, setSelectedVideo] = useState(null);
 
   useEffect(() => {
-    console.log('WorkGrid mounted');
-    console.log('Available projects:', INFO.projects);
+    // Add a visible debug message
+    const debugDiv = document.createElement('div');
+    debugDiv.style.position = 'fixed';
+    debugDiv.style.top = '10px';
+    debugDiv.style.right = '10px';
+    debugDiv.style.backgroundColor = 'orange';
+    debugDiv.style.color = 'white';
+    debugDiv.style.padding = '10px';
+    debugDiv.style.zIndex = '9999';
+    debugDiv.textContent = `WorkGrid mounted with ${INFO.projects.length} projects`;
+    document.body.appendChild(debugDiv);
+    setTimeout(() => document.body.removeChild(debugDiv), 5000);
   }, []);
 
   const handleVideoClick = (e, videoUrl) => {
     e.preventDefault();
     e.stopPropagation();
-    console.log('Video clicked with URL:', videoUrl);
+    
+    // Add a visible debug message
+    const debugDiv = document.createElement('div');
+    debugDiv.style.position = 'fixed';
+    debugDiv.style.top = '50px';
+    debugDiv.style.right = '10px';
+    debugDiv.style.backgroundColor = 'yellow';
+    debugDiv.style.color = 'black';
+    debugDiv.style.padding = '10px';
+    debugDiv.style.zIndex = '9999';
+    debugDiv.textContent = `Video clicked with URL: ${videoUrl}`;
+    document.body.appendChild(debugDiv);
+    setTimeout(() => document.body.removeChild(debugDiv), 5000);
+
     setSelectedVideo(videoUrl);
   };
 
   const handleCloseVideo = () => {
-    console.log('Closing video');
+    // Add a visible debug message
+    const debugDiv = document.createElement('div');
+    debugDiv.style.position = 'fixed';
+    debugDiv.style.top = '90px';
+    debugDiv.style.right = '10px';
+    debugDiv.style.backgroundColor = 'pink';
+    debugDiv.style.color = 'black';
+    debugDiv.style.padding = '10px';
+    debugDiv.style.zIndex = '9999';
+    debugDiv.textContent = 'Closing video';
+    document.body.appendChild(debugDiv);
+    setTimeout(() => document.body.removeChild(debugDiv), 5000);
+
     setSelectedVideo(null);
   };
 
@@ -52,8 +87,18 @@ const WorkGrid = () => {
 
 const ProjectCard = ({ project, onVideoClick }) => {
   useEffect(() => {
-    console.log('ProjectCard mounted for:', project.title);
-    console.log('Project URL:', project.url);
+    // Add a visible debug message
+    const debugDiv = document.createElement('div');
+    debugDiv.style.position = 'fixed';
+    debugDiv.style.top = '130px';
+    debugDiv.style.right = '10px';
+    debugDiv.style.backgroundColor = 'cyan';
+    debugDiv.style.color = 'black';
+    debugDiv.style.padding = '10px';
+    debugDiv.style.zIndex = '9999';
+    debugDiv.textContent = `ProjectCard mounted for: ${project.title} (URL: ${project.url})`;
+    document.body.appendChild(debugDiv);
+    setTimeout(() => document.body.removeChild(debugDiv), 5000);
   }, [project]);
 
   return (

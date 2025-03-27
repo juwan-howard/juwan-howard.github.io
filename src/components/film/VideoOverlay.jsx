@@ -2,6 +2,7 @@ import React from 'react';
 import './VideoOverlay.css';
 
 const VideoOverlay = ({ videoUrl, onClose }) => {
+  console.log('VideoOverlay rendered with URL:', videoUrl);
   return (
     <div className="video-overlay" onClick={onClose}>
       <div className="video-modal" onClick={e => e.stopPropagation()}>

@@ -148,12 +148,7 @@ const INFO = {
 			year: "2024",
 			url: "https://vimeo.com/959370566"
 		}
-	],
-
-	showreel: {
-		url: "https://player.vimeo.com/video/927267260",
-		description: "A collection of my narrative directing work showcasing my approach to visual storytelling and character-driven narratives."
-	}
+	]
 };
 
 export default INFO; 

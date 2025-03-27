@@ -27,19 +27,18 @@ const ContactPage = () => {
       </Helmet>
 
       <Header />
-      <main>
-        <div className="container mx-auto px-4 py-16 flex flex-col items-center justify-center">
-          <div className="w-full max-w-3xl mb-16 text-center">
-            <h1 className="text-4xl md:text-5xl mb-6 text-center indie-flower">Get In Touch</h1>
-            <p className="text-center text-lg mb-12 max-w-2xl mx-auto">
+      <main className="contact-page">
+        <div className="contact-container mx-auto px-4 py-16">
+          <div className="text-center mb-16">
+            <h1 className="text-4xl md:text-5xl mb-6 indie-flower">Get In Touch</h1>
+            <p className="text-lg mb-12 max-w-2xl mx-auto">
               Have a question, interested in collaboration, or want to discuss a project? 
               I'd love to hear from you!
             </p>
             <ContactInfo />
           </div>
-          <div className="w-full flex justify-center">
-            <ContactForm />
-          </div>
+          
+          <ContactForm />
         </div>
       </main>
       <Footer />

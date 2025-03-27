@@ -8,7 +8,7 @@ import INFO from "../../data/user";
 
 const ContactInfo = () => {
   return (
-    <div className="w-full max-w-2xl mx-auto">
+    <div className="contact-info-container w-full max-w-xl mx-auto">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
         {/* Email */}
         <div className="flex flex-col items-center p-6 bg-gray-50 rounded-lg shadow-sm transition-all duration-300 hover:shadow-md hover:transform hover:scale-105">

@@ -161,151 +161,153 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="bg-white p-8 rounded-lg shadow-md mx-auto w-full max-w-xl transition-all duration-300 hover:shadow-lg">
-      <h2 className="text-2xl font-bold mb-6 text-center indie-flower">Send a Message</h2>
+    <div className="contact-form-wrapper w-full flex justify-center">
+      <div className="bg-white p-8 rounded-lg shadow-md w-full mx-auto max-w-md transition-all duration-300 hover:shadow-lg">
+        <h2 className="text-2xl font-bold mb-6 text-center indie-flower">Send a Message</h2>
 
-      {status.info.error && (
-        <div className="bg-red-50 border-l-4 border-red-500 p-4 mb-6 rounded-r-md animate-fadeIn">
-          <p className="text-red-700">{status.info.msg}</p>
-        </div>
-      )}
+        {status.info.error && (
+          <div className="bg-red-50 border-l-4 border-red-500 p-4 mb-6 rounded-r-md animate-fadeIn">
+            <p className="text-red-700">{status.info.msg}</p>
+          </div>
+        )}
 
-      {status.submitted ? (
-        <div className="bg-green-50 border-l-4 border-green-500 p-6 mb-6 rounded-r-md animate-fadeIn text-center">
-          <div className="text-3xl text-green-500 mb-4">
-            <FontAwesomeIcon icon={faPaperPlane} />
+        {status.submitted ? (
+          <div className="bg-green-50 border-l-4 border-green-500 p-6 mb-6 rounded-r-md animate-fadeIn text-center">
+            <div className="text-3xl text-green-500 mb-4">
+              <FontAwesomeIcon icon={faPaperPlane} />
+            </div>
+            <h3 className="text-xl text-green-700 mb-2 indie-flower">Message Sent!</h3>
+            <p className="text-green-600 mb-4">{status.info.msg}</p>
+            <div className="mt-4">
+              <button 
+                className="px-6 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 transition-colors indie-flower"
+                onClick={() => setStatus({ submitted: false, submitting: false, info: { error: false, msg: null } })}
+                aria-label="Send another message"
+              >
+                Send Another Message
+              </button>
+            </div>
           </div>
-          <h3 className="text-xl text-green-700 mb-2 indie-flower">Message Sent!</h3>
-          <p className="text-green-600 mb-4">{status.info.msg}</p>
-          <div className="mt-4">
-            <button 
-              className="px-6 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 transition-colors indie-flower"
-              onClick={() => setStatus({ submitted: false, submitting: false, info: { error: false, msg: null } })}
-              aria-label="Send another message"
-            >
-              Send Another Message
-            </button>
-          </div>
-        </div>
-      ) : (
-        <form onSubmit={handleSubmit} className="w-full space-y-5" noValidate>
-          <div className="form-group">
-            <label htmlFor="name" className="block text-gray-700 mb-2 indie-flower text-lg">Your Name</label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              className={`w-full px-4 py-3 border rounded-md focus:outline-none focus:ring-2 transition-all
-                ${errors.name ? 'border-red-300 bg-red-50 focus:ring-red-200' : 'border-gray-300 focus:ring-black/10'}
-              `}
-              placeholder="Your name"
-              aria-invalid={errors.name ? "true" : "false"}
-              aria-describedby={errors.name ? "name-error" : undefined}
-              required
-            />
-            {errors.name && (
-              <div id="name-error" className="text-red-500 text-sm mt-1 animate-fadeIn" role="alert">
-                {errors.name}
-              </div>
-            )}
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="email" className="block text-gray-700 mb-2 indie-flower text-lg">Your Email</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              className={`w-full px-4 py-3 border rounded-md focus:outline-none focus:ring-2 transition-all
-                ${errors.email ? 'border-red-300 bg-red-50 focus:ring-red-200' : 'border-gray-300 focus:ring-black/10'}
-              `}
-              placeholder="Your email address"
-              aria-invalid={errors.email ? "true" : "false"}
-              aria-describedby={errors.email ? "email-error" : undefined}
-              required
-            />
-            {errors.email && (
-              <div id="email-error" className="text-red-500 text-sm mt-1 animate-fadeIn" role="alert">
-                {errors.email}
-              </div>
-            )}
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="subject" className="block text-gray-700 mb-2 indie-flower text-lg">Subject</label>
-            <input
-              type="text"
-              id="subject"
-              name="subject"
-              value={formData.subject}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              className={`w-full px-4 py-3 border rounded-md focus:outline-none focus:ring-2 transition-all
-                ${errors.subject ? 'border-red-300 bg-red-50 focus:ring-red-200' : 'border-gray-300 focus:ring-black/10'}
-              `}
-              placeholder="What's this about?"
-              aria-invalid={errors.subject ? "true" : "false"}
-              aria-describedby={errors.subject ? "subject-error" : undefined}
-              required
-            />
-            {errors.subject && (
-              <div id="subject-error" className="text-red-500 text-sm mt-1 animate-fadeIn" role="alert">
-                {errors.subject}
-              </div>
-            )}
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="message" className="block text-gray-700 mb-2 indie-flower text-lg">Your Message</label>
-            <textarea
-              id="message"
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              className={`w-full px-4 py-3 border rounded-md focus:outline-none focus:ring-2 transition-all min-h-[180px]
-                ${errors.message ? 'border-red-300 bg-red-50 focus:ring-red-200' : 'border-gray-300 focus:ring-black/10'}
-              `}
-              placeholder="Your message here..."
-              aria-invalid={errors.message ? "true" : "false"}
-              aria-describedby={errors.message ? "message-error" : undefined}
-              required
-            ></textarea>
-            {errors.message && (
-              <div id="message-error" className="text-red-500 text-sm mt-1 animate-fadeIn" role="alert">
-                {errors.message}
-              </div>
-            )}
-          </div>
-
-          <div className="form-group text-center mt-8">
-            <button
-              type="submit"
-              className="px-8 py-3 bg-black text-white rounded-md hover:bg-gray-800 transition-colors inline-flex items-center justify-center space-x-2 indie-flower text-lg"
-              disabled={status.submitting}
-              aria-label="Send Message"
-            >
-              {status.submitting ? (
-                <>
-                  <FontAwesomeIcon icon={faSpinner} className="animate-spin mr-2" />
-                  <span>Sending...</span>
-                </>
-              ) : (
-                <>
-                  <FontAwesomeIcon icon={faPaperPlane} className="mr-2" />
-                  <span>Send Message</span>
-                </>
+        ) : (
+          <form onSubmit={handleSubmit} className="w-full space-y-5" noValidate>
+            <div className="form-group">
+              <label htmlFor="name" className="block text-gray-700 mb-2 indie-flower text-lg">Your Name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                className={`w-full px-4 py-3 border rounded-md focus:outline-none focus:ring-2 transition-all
+                  ${errors.name ? 'border-red-300 bg-red-50 focus:ring-red-200' : 'border-gray-300 focus:ring-black/10'}
+                `}
+                placeholder="Your name"
+                aria-invalid={errors.name ? "true" : "false"}
+                aria-describedby={errors.name ? "name-error" : undefined}
+                required
+              />
+              {errors.name && (
+                <div id="name-error" className="text-red-500 text-sm mt-1 animate-fadeIn" role="alert">
+                  {errors.name}
+                </div>
               )}
-            </button>
-          </div>
-        </form>
-      )}
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="email" className="block text-gray-700 mb-2 indie-flower text-lg">Your Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                className={`w-full px-4 py-3 border rounded-md focus:outline-none focus:ring-2 transition-all
+                  ${errors.email ? 'border-red-300 bg-red-50 focus:ring-red-200' : 'border-gray-300 focus:ring-black/10'}
+                `}
+                placeholder="Your email address"
+                aria-invalid={errors.email ? "true" : "false"}
+                aria-describedby={errors.email ? "email-error" : undefined}
+                required
+              />
+              {errors.email && (
+                <div id="email-error" className="text-red-500 text-sm mt-1 animate-fadeIn" role="alert">
+                  {errors.email}
+                </div>
+              )}
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="subject" className="block text-gray-700 mb-2 indie-flower text-lg">Subject</label>
+              <input
+                type="text"
+                id="subject"
+                name="subject"
+                value={formData.subject}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                className={`w-full px-4 py-3 border rounded-md focus:outline-none focus:ring-2 transition-all
+                  ${errors.subject ? 'border-red-300 bg-red-50 focus:ring-red-200' : 'border-gray-300 focus:ring-black/10'}
+                `}
+                placeholder="What's this about?"
+                aria-invalid={errors.subject ? "true" : "false"}
+                aria-describedby={errors.subject ? "subject-error" : undefined}
+                required
+              />
+              {errors.subject && (
+                <div id="subject-error" className="text-red-500 text-sm mt-1 animate-fadeIn" role="alert">
+                  {errors.subject}
+                </div>
+              )}
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="message" className="block text-gray-700 mb-2 indie-flower text-lg">Your Message</label>
+              <textarea
+                id="message"
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                className={`w-full px-4 py-3 border rounded-md focus:outline-none focus:ring-2 transition-all min-h-[180px]
+                  ${errors.message ? 'border-red-300 bg-red-50 focus:ring-red-200' : 'border-gray-300 focus:ring-black/10'}
+                `}
+                placeholder="Your message here..."
+                aria-invalid={errors.message ? "true" : "false"}
+                aria-describedby={errors.message ? "message-error" : undefined}
+                required
+              ></textarea>
+              {errors.message && (
+                <div id="message-error" className="text-red-500 text-sm mt-1 animate-fadeIn" role="alert">
+                  {errors.message}
+                </div>
+              )}
+            </div>
+
+            <div className="form-group text-center mt-8">
+              <button
+                type="submit"
+                className="px-8 py-3 bg-black text-white rounded-md hover:bg-gray-800 transition-colors inline-flex items-center justify-center space-x-2 indie-flower text-lg"
+                disabled={status.submitting}
+                aria-label="Send Message"
+              >
+                {status.submitting ? (
+                  <>
+                    <FontAwesomeIcon icon={faSpinner} className="animate-spin mr-2" />
+                    <span>Sending...</span>
+                  </>
+                ) : (
+                  <>
+                    <FontAwesomeIcon icon={faPaperPlane} className="mr-2" />
+                    <span>Send Message</span>
+                  </>
+                )}
+              </button>
+            </div>
+          </form>
+        )}
+      </div>
     </div>
   );
 };

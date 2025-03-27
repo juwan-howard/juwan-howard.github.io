@@ -6,6 +6,19 @@
   font-family: "Indie Flower", cursive;
 }
 
+/* Font Classes */
+.indie-flower {
+  font-family: "Indie Flower", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.reenie-beanie {
+  font-family: "Reenie Beanie", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
 :root {
   /* Color Palette */
   --color-background: #ffffff;
@@ -95,6 +108,7 @@ main {
 
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
+  font-family: "Indie Flower", cursive;
   font-weight: var(--font-weight-normal);
   letter-spacing: var(--letter-spacing-wide);
   line-height: var(--line-height-tight);
@@ -103,27 +117,27 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: var(--font-size-5xl);
+  font-size: var(--font-size-6xl);
 }
 
 h2 {
-  font-size: var(--font-size-4xl);
+  font-size: var(--font-size-5xl);
 }
 
 h3 {
-  font-size: var(--font-size-3xl);
+  font-size: var(--font-size-4xl);
 }
 
 h4 {
-  font-size: var(--font-size-2xl);
+  font-size: var(--font-size-3xl);
 }
 
 h5 {
-  font-size: var(--font-size-xl);
+  font-size: var(--font-size-2xl);
 }
 
 h6 {
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-xl);
 }
 
 p {
@@ -142,6 +156,16 @@ a:hover {
   color: var(--color-accent);
 }
 
+/* Special typography class for emphasized content */
+.emphasized-text {
+  font-family: "Reenie Beanie", cursive;
+  font-size: 1.4em;
+  font-weight: var(--font-weight-normal);
+  line-height: 1.3;
+  letter-spacing: 0.03em;
+  color: var(--color-text);
+}
+
 /* Section styles */
 section {
   position: relative;
@@ -155,7 +179,8 @@ section {
 }
 
 .section-title {
-  font-size: var(--font-size-4xl);
+  font-family: "Indie Flower", cursive;
+  font-size: var(--font-size-5xl);
   margin-bottom: var(--spacing-5);
   font-weight: var(--font-weight-normal);
   letter-spacing: var(--letter-spacing-wider);
@@ -185,19 +210,19 @@ section {
 /* Responsive adjustments */
 @media (max-width: 992px) {
   h1 {
-    font-size: var(--font-size-4xl);
+    font-size: var(--font-size-5xl);
   }
   
   h2 {
-    font-size: var(--font-size-3xl);
+    font-size: var(--font-size-4xl);
   }
   
   h3 {
-    font-size: var(--font-size-2xl);
+    font-size: var(--font-size-3xl);
   }
   
   .section-title {
-    font-size: var(--font-size-3xl);
+    font-size: var(--font-size-4xl);
   }
   
   section {
@@ -211,19 +236,19 @@ section {
   }
   
   h1 {
-    font-size: var(--font-size-3xl);
+    font-size: var(--font-size-4xl);
   }
   
   h2 {
-    font-size: var(--font-size-2xl);
+    font-size: var(--font-size-3xl);
   }
   
   h3 {
-    font-size: var(--font-size-xl);
+    font-size: var(--font-size-2xl);
   }
   
   .section-title {
-    font-size: var(--font-size-2xl);
+    font-size: var(--font-size-3xl);
     margin-bottom: var(--spacing-4);
   }
   

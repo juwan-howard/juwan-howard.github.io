@@ -18,15 +18,34 @@ const Hero = () => {
             backgroundRepeat: 'no-repeat',
           }}
         />
+        {/* Dark overlay for top quarter of the image */}
+        <div 
+          className="absolute top-0 left-0 w-full h-1/3 z-20"
+          style={{
+            background: 'linear-gradient(to bottom, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.5) 70%, rgba(0,0,0,0) 100%)',
+          }}
+        />
       </div>
 
       {/* Content */}
-      <div className="container mx-auto px-4 relative z-20 text-white">
+      <div className="container mx-auto px-4 relative z-30 text-white">
         <div className="max-w-2xl">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+          <h1 
+            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
+            style={{
+              color: '#ffffff',
+              textShadow: '2px 2px 4px rgba(0,0,0,0.8)'
+            }}
+          >
             {INFO.main.title}
           </h1>
-          <p className="text-xl md:text-2xl mb-8 text-gray-200">
+          <p 
+            className="text-xl md:text-2xl mb-8"
+            style={{
+              color: '#f8f9fa',
+              textShadow: '1px 1px 3px rgba(0,0,0,0.8)'
+            }}
+          >
             {INFO.main.subtitle}
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
@@ -47,7 +66,7 @@ const Hero = () => {
       </div>
 
       {/* Scroll Down Indicator */}
-      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20 text-white animate-bounce">
+      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-30 text-white animate-bounce">
         <svg 
           xmlns="http://www.w3.org/2000/svg" 
           className="h-6 w-6" 

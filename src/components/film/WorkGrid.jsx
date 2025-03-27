@@ -1,9 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
+import VideoOverlay from "./VideoOverlay";
 
 // Import data
 import INFO from "../../data/user";
 
 const WorkGrid = () => {
+  const [selectedVideo, setSelectedVideo] = useState(null);
+
+  const handleVideoClick = (videoUrl) => {
+    setSelectedVideo(videoUrl);
+  };
+
+  const handleCloseVideo = () => {
+    setSelectedVideo(null);
+  };
+
   return (
     <section className="py-16 bg-white">
       <div className="container mx-auto px-4">
@@ -11,15 +22,26 @@ const WorkGrid = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {INFO.projects.map((project, index) => (
-            <ProjectCard key={index} project={project} />
+            <ProjectCard 
+              key={index} 
+              project={project} 
+              onVideoClick={handleVideoClick}
+            />
           ))}
         </div>
       </div>
+
+      {selectedVideo && (
+        <VideoOverlay 
+          videoUrl={selectedVideo} 
+          onClose={handleCloseVideo}
+        />
+      )}
     </section>
   );
 };
 
-const ProjectCard = ({ project }) => {
+const ProjectCard = ({ project, onVideoClick }) => {
   return (
     <div className="group relative overflow-hidden rounded-lg">
       {/* Thumbnail */}
@@ -36,14 +58,12 @@ const ProjectCard = ({ project }) => {
         <h3 className="text-xl font-semibold text-white mb-1">{project.title}</h3>
         <p className="text-gray-300 mb-3">{project.category}</p>
         
-        <a 
-          href={project.url} 
-          target="_blank"
-          rel="noopener noreferrer"
+        <button 
+          onClick={() => onVideoClick(project.url)}
           className="inline-block px-4 py-2 bg-white text-black text-sm font-medium rounded-md hover:bg-gray-200 transition-colors"
         >
           Watch Film
-        </a>
+        </button>
       </div>
     </div>
   );

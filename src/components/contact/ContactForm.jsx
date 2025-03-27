@@ -161,7 +161,7 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="bg-white p-8 rounded-lg shadow-md w-full transition-all duration-300 hover:shadow-lg">
+    <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-2xl mx-auto transition-all duration-300 hover:shadow-lg">
       <h2 className="text-2xl font-bold mb-6 text-center indie-flower">Send a Message</h2>
 
       {status.info.error && (
@@ -188,9 +188,9 @@ const ContactForm = () => {
           </div>
         </div>
       ) : (
-        <form onSubmit={handleSubmit} className="w-full space-y-5" noValidate>
+        <form onSubmit={handleSubmit} className="w-full space-y-5 max-w-xl mx-auto" noValidate>
           <div className="form-group">
-            <label htmlFor="name" className="block text-gray-700 mb-2 indie-flower">Name</label>
+            <label htmlFor="name" className="block text-gray-700 mb-2 indie-flower text-lg">Your Name</label>
             <input
               type="text"
               id="name"
@@ -214,7 +214,7 @@ const ContactForm = () => {
           </div>
 
           <div className="form-group">
-            <label htmlFor="email" className="block text-gray-700 mb-2 indie-flower">Email</label>
+            <label htmlFor="email" className="block text-gray-700 mb-2 indie-flower text-lg">Your Email</label>
             <input
               type="email"
               id="email"
@@ -238,7 +238,7 @@ const ContactForm = () => {
           </div>
 
           <div className="form-group">
-            <label htmlFor="subject" className="block text-gray-700 mb-2 indie-flower">Subject</label>
+            <label htmlFor="subject" className="block text-gray-700 mb-2 indie-flower text-lg">Subject</label>
             <input
               type="text"
               id="subject"
@@ -249,7 +249,7 @@ const ContactForm = () => {
               className={`w-full px-4 py-3 border rounded-md focus:outline-none focus:ring-2 transition-all
                 ${errors.subject ? 'border-red-300 bg-red-50 focus:ring-red-200' : 'border-gray-300 focus:ring-black/10'}
               `}
-              placeholder="Subject of your message"
+              placeholder="What's this about?"
               aria-invalid={errors.subject ? "true" : "false"}
               aria-describedby={errors.subject ? "subject-error" : undefined}
               required
@@ -262,18 +262,17 @@ const ContactForm = () => {
           </div>
 
           <div className="form-group">
-            <label htmlFor="message" className="block text-gray-700 mb-2 indie-flower">Message</label>
+            <label htmlFor="message" className="block text-gray-700 mb-2 indie-flower text-lg">Your Message</label>
             <textarea
               id="message"
               name="message"
               value={formData.message}
               onChange={handleChange}
               onBlur={handleBlur}
-              rows="5"
-              className={`w-full px-4 py-3 border rounded-md focus:outline-none focus:ring-2 transition-all
+              className={`w-full px-4 py-3 border rounded-md focus:outline-none focus:ring-2 transition-all min-h-[180px]
                 ${errors.message ? 'border-red-300 bg-red-50 focus:ring-red-200' : 'border-gray-300 focus:ring-black/10'}
               `}
-              placeholder="Your message (min 10 characters)"
+              placeholder="Your message here..."
               aria-invalid={errors.message ? "true" : "false"}
               aria-describedby={errors.message ? "message-error" : undefined}
               required
@@ -285,22 +284,22 @@ const ContactForm = () => {
             )}
           </div>
 
-          <div className="flex justify-center mt-8">
+          <div className="form-group text-center mt-8">
             <button
               type="submit"
-              className="px-8 py-3 bg-black text-white font-medium rounded-md hover:bg-gray-800 transition-all hover:scale-105 indie-flower flex items-center"
+              className="px-8 py-3 bg-black text-white rounded-md hover:bg-gray-800 transition-colors inline-flex items-center justify-center space-x-2 indie-flower text-lg"
               disabled={status.submitting}
-              aria-label={status.submitting ? "Sending message..." : "Send message"}
+              aria-label="Send Message"
             >
               {status.submitting ? (
                 <>
-                  <FontAwesomeIcon icon={faSpinner} className="animate-spin mr-2" />
-                  Sending...
+                  <FontAwesomeIcon icon={faSpinner} className="animate-spin" />
+                  <span>Sending...</span>
                 </>
               ) : (
                 <>
-                  <FontAwesomeIcon icon={faPaperPlane} className="mr-2" />
-                  Send Message
+                  <FontAwesomeIcon icon={faPaperPlane} />
+                  <span>Send Message</span>
                 </>
               )}
             </button>

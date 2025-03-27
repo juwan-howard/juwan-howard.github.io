@@ -27,10 +27,14 @@ const ContactPage = () => {
       </Helmet>
 
       <Header />
-      <main className="container mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          <ContactInfo />
-          <ContactForm />
+      <main className="container mx-auto px-4 py-16 max-w-3xl">
+        <div className="flex flex-col items-center">
+          <div className="w-full mb-12">
+            <ContactInfo />
+          </div>
+          <div className="w-full">
+            <ContactForm />
+          </div>
         </div>
       </main>
       <Footer />

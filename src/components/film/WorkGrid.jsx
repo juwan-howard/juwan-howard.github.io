@@ -8,7 +8,8 @@ const WorkGrid = () => {
   const [selectedVideo, setSelectedVideo] = useState(null);
 
   const handleVideoClick = (e, videoUrl) => {
-    e.preventDefault(); // Prevent default link behavior
+    e.preventDefault();
+    e.stopPropagation();
     setSelectedVideo(videoUrl);
   };
 
@@ -59,13 +60,12 @@ const ProjectCard = ({ project, onVideoClick }) => {
         <h3 className="text-xl font-semibold text-white mb-1">{project.title}</h3>
         <p className="text-gray-300 mb-3">{project.category}</p>
         
-        <a 
-          href={project.url}
+        <button 
           onClick={(e) => onVideoClick(e, project.url)}
           className="inline-block px-4 py-2 bg-white text-black text-sm font-medium rounded-md hover:bg-gray-200 transition-colors"
         >
           Watch Film
-        </a>
+        </button>
       </div>
     </div>
   );

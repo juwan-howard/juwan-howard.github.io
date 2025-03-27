@@ -27,7 +27,7 @@
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "clean": "rm -rf node_modules/.cache && rm -rf .cache && rm -rf .gh-pages-cache",
-    "deploy": "npm run clean && gh-pages -d build --repo git@github-juwan:juwan-howard/juwan-howard.github.io.git"
+    "deploy": "npm run clean && gh-pages --dist build --repo git@github-juwan:juwan-howard/juwan-howard.github.io.git --no-history --git git"
   },
   "eslintConfig": {
     "extends": [

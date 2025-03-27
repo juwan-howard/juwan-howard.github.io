@@ -52,13 +52,11 @@
 }
 
 body {
-  font-family: 'Helvetica Neue', Arial, sans-serif;
   background-color: #000;
   color: #fff;
-  line-height: var(--line-height-normal);
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-size: var(--font-size-base);
 }
 
 .App {

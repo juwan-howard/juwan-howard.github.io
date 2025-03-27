@@ -7,15 +7,9 @@ import INFO from "../../data/user";
 const WorkGrid = () => {
   const [selectedVideo, setSelectedVideo] = useState(null);
 
-  const convertToEmbedUrl = (url) => {
-    // Extract video ID from Vimeo URL
-    const videoId = url.split('/').pop();
-    // Return embed URL
-    return `https://player.vimeo.com/video/${videoId}`;
-  };
-
-  const handleVideoClick = (videoUrl) => {
-    setSelectedVideo(convertToEmbedUrl(videoUrl));
+  const handleVideoClick = (e, videoUrl) => {
+    e.preventDefault(); // Prevent default link behavior
+    setSelectedVideo(videoUrl);
   };
 
   const handleCloseVideo = () => {
@@ -65,12 +59,13 @@ const ProjectCard = ({ project, onVideoClick }) => {
         <h3 className="text-xl font-semibold text-white mb-1">{project.title}</h3>
         <p className="text-gray-300 mb-3">{project.category}</p>
         
-        <button 
-          onClick={() => onVideoClick(project.url)}
+        <a 
+          href={project.url}
+          onClick={(e) => onVideoClick(e, project.url)}
           className="inline-block px-4 py-2 bg-white text-black text-sm font-medium rounded-md hover:bg-gray-200 transition-colors"
         >
           Watch Film
-        </button>
+        </a>
       </div>
     </div>
   );

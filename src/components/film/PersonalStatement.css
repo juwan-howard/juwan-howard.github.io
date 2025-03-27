@@ -1,0 +1,26 @@
+/* Dedicated styling for the personal statement */
+.personal-statement {
+  font-family: "Reenie Beanie", cursive, sans-serif !important;
+  font-size: 1.6rem !important;
+  line-height: 1.5 !important;
+  margin-bottom: 2rem !important;
+  color: #000000 !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  font-weight: 400 !important;
+  text-align: left !important;
+  letter-spacing: 0.03em !important;
+}
+
+@media (max-width: 768px) {
+  .personal-statement {
+    font-size: 1.4rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .personal-statement {
+    font-size: 1.3rem !important;
+  }
+} 

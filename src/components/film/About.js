@@ -1,9 +1,48 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './About.css';
+import './PersonalStatement.css'; // Import dedicated styling for personal statement
+import PersonalStatement from './PersonalStatement'; // Import the dedicated component
 import INFO from '../../data/user';
+// Direct import to ensure the silhouette image is bundled
+import silhouetteImage from '../../assets/silhouette2.png';
 
 const About = () => {
   const [showModal, setShowModal] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const containerRef = useRef(null);
+  
+  useEffect(() => {
+    // Force visibility on mount
+    if (containerRef.current) {
+      // Small delay to allow for any transitions
+      setTimeout(() => {
+        containerRef.current.classList.add('visible');
+      }, 100);
+    }
+    
+    // Create intersection observer to trigger visibility
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+    
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+    
+    // Cleanup
+    return () => {
+      if (containerRef.current) {
+        observer.unobserve(containerRef.current);
+      }
+    };
+  }, []);
   
   const toggleModal = () => {
     setShowModal(!showModal);
@@ -11,15 +50,26 @@ const About = () => {
     document.body.style.overflow = showModal ? 'auto' : 'hidden';
   };
 
+  const handleImageLoad = () => {
+    setImageLoaded(true);
+    console.log("Image loaded successfully");
+  };
+
+  const handleImageError = () => {
+    console.error("Error loading image:", INFO.about.profileImage);
+    setImageLoaded(false);
+  };
+
+  // Fallback options if the main image fails to load
+  const fallbackImage = silhouetteImage || "/silhouette2-fallback.png";
+
   return (
     <section id="about" className="about-section">
-      <div className="about-container">
+      <div className="about-container visible" ref={containerRef} style={{visibility: 'visible', display: 'block'}}>
         <div className="about-content">
           <div className="about-text">
             <h2>About Me</h2>
-            <p className="lead personal-statement">
-              {INFO.about.title}
-            </p>
+            <PersonalStatement text={INFO.about.title} />
             <p>
               {INFO.about.description}
             </p>
@@ -54,8 +104,38 @@ const About = () => {
             </div>
           </div>
           
-          <div className="about-image">
-            <img src={INFO.about.profileImage} alt="Juwan Howard - Narrative Director & Filmmaker" />
+          <div className="about-image" style={{visibility: 'visible', display: 'block'}}>
+            <img 
+              src={INFO.about.profileImage || fallbackImage} 
+              alt="Juwan Howard - Narrative Director & Filmmaker"
+              onLoad={handleImageLoad}
+              onError={handleImageError}
+              style={{
+                visibility: 'visible',
+                opacity: 1,
+                width: '100%',
+                height: 'auto',
+                display: 'block'
+              }}
+            />
+            {!imageLoaded && (
+              <div style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                backgroundColor: '#f5f5f5',
+                color: '#666',
+                textAlign: 'center',
+                padding: '20px'
+              }}>
+                Loading image...
+              </div>
+            )}
           </div>
         </div>
       </div>

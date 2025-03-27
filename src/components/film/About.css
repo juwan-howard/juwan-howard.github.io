@@ -2,20 +2,52 @@
   padding: 5rem 0;
   background-color: #ffffff;
   color: #000000;
+  position: relative;
+  overflow: visible;
+  min-height: 500px;
+  display: block;
+  width: 100%;
+  visibility: visible;
 }
 
 .about-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 2rem;
-  opacity: 0;
-  transform: translateY(30px);
+  padding: 2rem;
+  opacity: 1;  /* Force opacity to be 1 by default */
+  transform: none; /* Remove transform by default */
   transition: opacity 0.6s ease, transform 0.6s ease;
+  visibility: visible;
+  display: block;
 }
 
+/* Keep the animation effect but ensure visibility */
 .about-container.visible {
   opacity: 1;
   transform: translateY(0);
+  visibility: visible;
+}
+
+.about-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.about-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.about-text h2 {
+  font-family: "Indie Flower", cursive;
+  font-size: 3rem;
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+  color: #000000;
 }
 
 .about-heading {
@@ -48,28 +80,28 @@
 }
 
 .about-image {
+  flex: 1;
+  min-width: 300px;
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
   aspect-ratio: 4/3;
+  position: relative;
+  display: block;
 }
 
 .about-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain; /* Changed from cover to contain */
   display: block;
   transition: transform 0.5s ease;
+  opacity: 1;
+  visibility: visible;
 }
 
 .about-image:hover img {
-  transform: scale(1.05);
-}
-
-.about-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  transform: scale(1.03);
 }
 
 .about-content h3 {
@@ -88,12 +120,18 @@
   color: #333333;
 }
 
-.about-content p.personal-statement {
-  font-family: "Reenie Beanie", cursive;
-  font-size: 1.6rem;
-  line-height: 1.5;
-  margin-bottom: 2rem;
-  color: #000000;
+.about-content p.personal-statement,
+.about-content .personal-statement,
+.lead.personal-statement {
+  font-family: "Reenie Beanie", cursive, sans-serif !important;
+  font-size: 1.6rem !important;
+  line-height: 1.5 !important;
+  margin-bottom: 2rem !important;
+  color: #000000 !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  font-weight: 400 !important;
 }
 
 .stats-section {
@@ -131,16 +169,14 @@
 }
 
 @media (max-width: 768px) {
-  .about-grid {
-    grid-template-columns: 1fr;
+  .about-content {
+    flex-direction: column-reverse;
   }
   
   .about-image {
-    order: 1;
-  }
-  
-  .about-content {
-    order: 2;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto 2rem;
   }
   
   .about-title {
@@ -155,70 +191,48 @@
     font-size: 1.4rem;
   }
   
-  .stats-section {
-    gap: 1rem;
-  }
-  
-  .stat-item {
-    padding: 1.5rem 1rem;
-  }
-  
-  .stat-number {
-    font-size: 2.5rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .stats-section {
+  .skills {
     grid-template-columns: 1fr;
   }
 }
 
-.about-text {
-  flex: 1;
-}
-
-.about-text h2 {
-  font-size: 2.5rem;
-  font-weight: 300;
-  margin-bottom: 1.5rem;
-  letter-spacing: 3px;
-  color: #000000;
-}
-
-.about-text .lead {
-  font-size: 1.3rem;
-  color: #555555;
-  margin-bottom: 1.5rem;
-  line-height: 1.6;
-}
-
-.about-text p {
-  margin-bottom: 1.5rem;
-  line-height: 1.8;
-  color: #333333;
+@media (max-width: 480px) {
+  .about-section {
+    padding: 3rem 0;
+  }
+  
+  .about-container {
+    padding: 0 1.5rem;
+  }
+  
+  .about-text h2 {
+    font-size: 2.5rem;
+  }
+  
+  .about-content p.personal-statement {
+    font-size: 1.3rem;
+  }
+  
+  .bio-modal-content {
+    max-height: 100vh;
+    border-radius: 0;
+  }
 }
 
 .skills {
-  display: flex;
-  gap: 3rem;
-  margin-top: 2rem;
-}
-
-.skill-column {
-  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
 }
 
 .skill-column h3 {
-  font-size: 1.1rem;
-  font-weight: 400;
-  color: #555555;
-  margin-bottom: 1rem;
-  letter-spacing: 1px;
+  font-size: 1.8rem !important;
+  margin-bottom: 1rem !important;
 }
 
 .skill-column ul {
-  list-style: none;
+  list-style-type: none;
   padding: 0;
 }
 
@@ -226,14 +240,14 @@
   margin-bottom: 0.8rem;
   position: relative;
   padding-left: 1.5rem;
-  color: #333333;
+  font-family: "Indie Flower", cursive;
 }
 
 .skill-column li:before {
-  content: '—';
+  content: "→";
   position: absolute;
   left: 0;
-  color: #aaaaaa;
+  color: #000000;
 }
 
 .learn-more {
@@ -242,93 +256,74 @@
 
 .learn-more-btn {
   background: none;
-  border: none;
-  color: #000000;
+  border: 1px solid #000000;
+  padding: 0.8rem 1.5rem;
+  font-family: "Indie Flower", cursive;
   font-size: 1rem;
   cursor: pointer;
-  padding: 0;
-  text-decoration: underline;
-  transition: color 0.3s;
-  text-align: left;
+  transition: all 0.3s ease;
 }
 
 .learn-more-btn:hover {
-  color: #666666;
+  background-color: #000000;
+  color: #ffffff;
 }
 
-/* Modal styles */
+/* Biography modal */
 .bio-modal {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(0, 0, 0, 0.8);
   z-index: 1000;
   display: flex;
-  justify-content: center;
   align-items: center;
-  animation: fadeIn 0.3s ease;
+  justify-content: center;
+  padding: 2rem;
 }
 
 .bio-modal-content {
   background-color: #ffffff;
-  width: 90%;
+  width: 100%;
   max-width: 800px;
   max-height: 90vh;
-  border-radius: 8px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  overflow-y: auto;
-  animation: slideIn 0.3s ease;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .bio-modal-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid #eee;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem 2rem;
-  border-bottom: 1px solid #eeeeee;
 }
 
 .bio-modal-header h2 {
   margin: 0;
-  font-size: 1.8rem;
-  font-weight: 300;
-  letter-spacing: 2px;
-  color: #000000;
+  font-size: 2rem;
 }
 
 .close-modal {
   background: none;
   border: none;
   font-size: 2rem;
-  color: #555555;
   cursor: pointer;
-  transition: color 0.3s;
-}
-
-.close-modal:hover {
   color: #000000;
 }
 
 .bio-modal-body {
   padding: 2rem;
+  overflow-y: auto;
 }
 
 .bio-modal-body p {
   margin-bottom: 1.5rem;
   line-height: 1.8;
-  color: #333333;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes slideIn {
-  from { transform: translateY(-30px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
 }
 
 @media (max-width: 992px) {

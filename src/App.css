@@ -8,15 +8,17 @@
 
 /* Font Classes */
 .indie-flower {
-  font-family: "Indie Flower", cursive;
+  font-family: "Indie Flower", cursive, sans-serif;
   font-weight: 400;
   font-style: normal;
+  font-display: swap; /* Ensure text is visible during font loading */
 }
 
 .reenie-beanie {
-  font-family: "Reenie Beanie", cursive;
+  font-family: "Reenie Beanie", cursive, sans-serif;
   font-weight: 400;
   font-style: normal;
+  font-display: swap; /* Ensure text is visible during font loading */
 }
 
 :root {
@@ -108,12 +110,14 @@ main {
 
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Indie Flower", cursive;
+  font-family: "Indie Flower", cursive, sans-serif;
   font-weight: var(--font-weight-normal);
   letter-spacing: var(--letter-spacing-wide);
   line-height: var(--line-height-tight);
   margin-bottom: var(--spacing-4);
   color: var(--color-text);
+  visibility: visible;
+  display: block;
 }
 
 h1 {
@@ -158,12 +162,14 @@ a:hover {
 
 /* Special typography class for emphasized content */
 .emphasized-text {
-  font-family: "Reenie Beanie", cursive;
+  font-family: "Reenie Beanie", cursive, sans-serif;
   font-size: 1.4em;
   font-weight: var(--font-weight-normal);
   line-height: 1.3;
   letter-spacing: 0.03em;
   color: var(--color-text);
+  display: block;
+  visibility: visible;
 }
 
 /* Section styles */

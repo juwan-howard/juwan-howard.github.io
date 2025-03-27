@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet";
 // Import our components
 import Header from '../components/layout/Header';
 import Hero from '../components/film/Hero';
-import Projects from '../components/film/Projects';
+import WorkGrid from '../components/film/WorkGrid';
 import About from '../components/film/About';
 import Contact from '../components/film/Contact';
 import Footer from '../components/layout/Footer';
@@ -31,7 +31,7 @@ const HomePage = () => {
       <Header />
       <main>
         <Hero />
-        <Projects />
+        <WorkGrid />
         <About />
         <Contact />
       </main>

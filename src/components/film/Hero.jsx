@@ -6,7 +6,7 @@ import INFO from "../../data/user";
 
 const Hero = () => {
   return (
-    <section className="relative h-screen flex items-center">
+    <section className="relative h-screen flex items-start pt-20 md:pt-32">
       {/* Background Video or Image */}
       <div className="absolute inset-0 z-0 bg-black">
         <div 
@@ -20,7 +20,7 @@ const Hero = () => {
         />
         {/* Dark overlay for top quarter of the image */}
         <div 
-          className="absolute top-0 left-0 w-full h-1/3 z-20"
+          className="absolute top-0 left-0 w-full h-2/5 z-20"
           style={{
             background: 'linear-gradient(to bottom, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.5) 70%, rgba(0,0,0,0) 100%)',
           }}
@@ -28,7 +28,7 @@ const Hero = () => {
       </div>
 
       {/* Content */}
-      <div className="container mx-auto px-4 relative z-30 text-white">
+      <div className="container mx-auto px-4 relative z-30 text-white mt-4 md:mt-0">
         <div className="max-w-2xl">
           <h1 
             className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
